@@ -27,11 +27,49 @@ router.get('/', (req, res) => {
 // DELETE /polls/:id
 
 
-// Create New Vote - TARA
+// Create New Vote - TARA - added route
+// READ
 // GET /polls/:id
+const pollsDb = {
+  "1": {
+    title: "My Poll",
+    emal: "a@a.com"
+  },
+};
+const optionsDb = {
+  "1": {
+    polls_id: 1,
+    title: "This is the first option",
+    description: "this option is awesome"
+  },
+  "2": {
+    polls_id: 1,
+    title: "This is the second option",
+    description: "this option is cool"
+  },
+  "3": {
+    polls_id: 1,
+    title: "This is the third option",
+    description: "this option is okay"
+  },
+}
+
+router.get('/:id', (req, res) => {
+  const templateVars = {
+    id: pollsDb.id,
+    pTitle: pollsDb.title,
+    oTitle: optionsDb.title,
+    oDesc: optionsDb.description
+  };
+  res.render('polls_vote', templateVars);
+});
+
+//ADD
 // POST /polls/:id
 // polls_vote.ejs
-
+router.post('/:id', (req, res) => {
+  res.render('polls_vote');
+});
 
 
 module.exports = router;
