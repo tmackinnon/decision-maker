@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 //HOMEPAGE
 router.get('/', (req, res) => {
@@ -15,6 +15,10 @@ router.get('/', (req, res) => {
 
 // Create new polls - OMAR
 //GET /polls/new
+router.get('/new', (req, res) => {
+  res.render('polls_new');
+});
+
 //POST /polls
 //polls_new.ejs
 

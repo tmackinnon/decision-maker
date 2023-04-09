@@ -1,0 +1,61 @@
+main {
+  padding-top: 200px;
+}
+
+
+.input-info {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-poll-title {
+  width: 50%;
+  margin-bottom: 2rem;
+  height: 3rem;
+  border-radius: 0.6rem ;
+  border: 2px solid rgb(33, 155, 211) ;
+}
+
+.input-poll-description {
+  width: 50%;
+  height: 5rem;
+  border-radius: 0.6rem ;
+  border: 2px solid rgb(33, 155, 211) ;
+}
+
+.option-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.option-instance {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+.option-inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10rem;
+}
+
+.option-changes {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-number>p {
+  margin: 0;
+}
+
+.complete-poll {
+  display: flex;
+  justify-content: center;
+}
