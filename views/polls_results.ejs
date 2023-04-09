@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Users</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -12,14 +12,15 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/header.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/users.js"></script>
 </head>
 
 <body>
-  <%- include('partials/_header') %>
+  <h1>Users</h1>
+  <button id="fetch-users">Fetch Users via AJAX</button>
+  <ul id="users"></ul>
 </body>
 
 </html>
