@@ -8,19 +8,57 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
+  <!-- App CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/vote.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/users.js"></script>
+
+  <script type="text/javascript" src="/scripts/sort.js"></script>
+
 </head>
 
 <body>
-  <h1>Users</h1>
-  <button id="fetch-users">Fetch Users via AJAX</button>
-  <ul id="users"></ul>
+  <%- include('partials/_header') %>
+
+  <main class="poll-info">
+    <div>
+      <h1 class="poll-title"><%= pTitle %></h1>
+      <p>Description of Poll</p>
+      <p>Instructions</p>
+    </div>
+
+    <table class="options-table">
+      <thead>
+        <tr>
+          <th scope="col">rank</th>
+          <th scope="col">option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let id in optionsDb) { %>
+          <tr data-index="optionId1" data-position="rankings.rank">
+            <td>1</td>
+            <td>
+              <h3><%=optionsDb[id].title%></h3>
+              <p><%=optionsDb[id].description%></p>
+            </td>
+          </tr>
+      </tbody>
+      <% } %>
+    </table>
+
+    <form method="POST" action="/polls/:id">
+      <label for="vote"></label>
+      <input name="voter_name" id="vote" placeholder="Enter your name"> </input>
+      <button type="submit">Submit</button>
+    </form>
+
+  </main>
+
 </body>
 
 </html>
