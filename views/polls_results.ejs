@@ -18,22 +18,28 @@
 
 <body>
   <%- include('partials/_header') %>
+  <% let num = 1 %>
   <main>
     <div id="poll-title">
       <h1>Poll Title</h1>
       <h4>Poll Description</h4>
     </div>
-
-    <div id="winning-option" class="option">
-      <h1>I'm the winning option!</h1>
-      <h4>ASKjaskdghsdjkghnjkascmasjcnkasjn</h4>
-    </div>
-
-    <% for (let key in optionDatabase) { %>
+    <div id="winning-option" class="option-container">
+      <div class="number"><%= num %></div>
       <div class="option">
-        <h1><%= optionDatabase[key].title %></h1>
+        <h1>I'm the winning option!</h1>
         <button class="hide-button"> Hide Description </button>
-        <h4 class="description"><%= optionDatabase[key].description %></h4>
+        <h4 class="description">ASKjaskdghsdjkghnjkascmasjcnkasjn</h4>
+      </div>
+    </div>
+    <% for (let key in optionDatabase) { %>
+      <div class="option-container">
+        <div class="number"><%= num+=1 %></div>
+        <div class="option">
+          <h1><%= optionDatabase[key].title %></h1>
+          <button class="hide-button"> Hide Description </button>
+          <h4 class="description"><%= optionDatabase[key].description %></h4>
+        </div>
       </div>
     <% } %>
 </body>

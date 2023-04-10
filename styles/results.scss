@@ -1,9 +1,26 @@
 main {
-  margin: 1em; display: flex; flex-direction: column; align-items: center;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #poll-title {
-  border: 1px solid black; margin: 20px; width: 50%; text-align: center;
+  border: 1px solid black;
+  margin: 20px; width: 50%;
+  text-align: center;
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  border: 1px solid black;
+  margin: 20px;
+  width: 50%;
+  text-align: center;
+  justify-content: space-around;
 }
 
 #winning-option {
@@ -11,8 +28,14 @@ main {
 }
 
 .option {
-  border: 1px solid black;
-  margin: 20px;
-  width: 50%;
+  margin-right: auto;
+  margin-left: -25px;
   text-align: center;
+}
+
+.number {
+  float:left;
+  margin-right: auto;
+  margin-left:20px;
+  font-size: 60px;
 }
