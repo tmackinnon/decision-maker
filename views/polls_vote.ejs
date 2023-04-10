@@ -37,10 +37,10 @@
         <% for (let id in optionsDb) { %>
           <tr>
             <td class="ranking"><%= i %></td>
-            <% i = i+1 %>
-            <td class="option">
+            <td class="option" data-position='<%= i %>'>
               <h3><%=optionsDb[id].title%></h3>
               <p><%=optionsDb[id].description%></p>
+              <% i = i+1 %>
             </td>
           </tr>
       </tbody>
