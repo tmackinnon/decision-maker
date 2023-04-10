@@ -1,12 +1,48 @@
+$border: 1px solid rgb(45, 44, 44);
+$border-radius: 0.6rem;
+
 .poll-info {
   display: flex;
   flex-direction: column;
   padding-top: 200px;
   align-items: center;
+  margin-bottom: 100px;
+
+    header {
+      margin-top: 50px;
+      border: $border;
+      border-radius: $border-radius;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .poll-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .options-table {
+      width: 50%;
+      margin-bottom: 50px;
+
+      .ranking {
+        border: 1px solid rgb(45, 44, 44);
+        border-radius: $border-radius;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .option {
+        border: $border;
+        border-radius: $border-radius;
+        padding: 30px;
+      }
+
+    }
+
+
 }
 
-main .poll-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
