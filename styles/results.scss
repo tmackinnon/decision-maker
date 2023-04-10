@@ -1,5 +1,10 @@
-/* id="winning-option" class ="option" style="border: 1px solid black; background-color: olivedrab; margin: 20px; width: 50%; text-align: center;"
-class="option" style="border: 1px solid black; margin: 20px; width: 50%; text-align: center;" */
+main {
+  margin: 1em; display: flex; flex-direction: column; align-items: center;
+}
+
+#poll-title {
+  border: 1px solid black; margin: 20px; width: 50%; text-align: center;
+}
 
 #winning-option {
   background-color: olivedrab;
