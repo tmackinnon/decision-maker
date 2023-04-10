@@ -24,57 +24,32 @@
     <main>
       <div class="input-info">
         <label for="input-poll-title">Title</label>
-        <input type="text" placeholder="title" class="input-poll-title" name="input-poll-title">
+        <input type="text" class="input-poll-title" name="input-poll-title">
         <label for="input-poll-description">Description</label>
-        <textarea placeholder="description" class="input-poll-description" name="input-poll-description"></textarea>
+        <textarea class="input-poll-description" name="input-poll-description"></textarea>
+        <div class="option-inputs">
+          <label for="option-title">Option Title</label>
+          <input type="text" class="input-option-title" name="option-title">
+          <label for="option-description">Option Description</label>
+          <textarea type="text" class="input-option-description"></textarea>
+        </div>
+        <div class="add-option">
+          <button>Add Option</button>
+        </div>
       </div>
 
       <div class="option-container">
-        <div class="option-instance">
-          <div class="option-number">
-            <p>1</p>
-          </div>
-          <div class="option-inputs">
-            <input type="text" class="option-title" placeholder="option title">
-            <input type="text" class="option-description" placeholder="option description">
-          </div>
-          <div class="option-changes">
-            <button type="submit">Edit</button>
-            <button type="submit">Delete</button>
-          </div>
+
+        <div class="option-number">
+          <p>1</p>
         </div>
+        <div class="option-info"></div>
+        <div class="option-title"></div>
+        <div class="option-description"></div>
 
-
-        <div class="option-instance">
-          <div class="option-number">
-            <p>1</p>
-          </div>
-          <div class="option-inputs">
-            <input type="text" class="option-title" placeholder="option title">
-            <input type="text" class="option-description" placeholder="option description">
-          </div>
-          <div class="option-changes">
-            <button type="submit">Edit</button>
-            <button type="submit">Delete</button>
-          </div>
-        </div>
-
-        <div class="option-instance">
-          <div class="option-number">
-            <p>1</p>
-          </div>
-          <div class="option-inputs">
-            <input type="text" class="option-title" placeholder="option title">
-            <input type="text" class="option-description" placeholder="option description">
-          </div>
-          <div class="option-changes">
-            <button type="submit">Edit</button>
-            <button type="submit">Delete</button>
-          </div>
-        </div>
-
-        <div class="add-option">
-          <button>Add Option</button>
+        <div class="option-changes">
+          <button type="submit">Edit</button>
+          <button type="submit">Delete</button>
         </div>
       </div>
 
@@ -84,4 +59,5 @@
       </div>
     </main>
 </body>
+
 </html>
