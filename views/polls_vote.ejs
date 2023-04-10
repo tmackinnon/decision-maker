@@ -25,24 +25,20 @@
   <%- include('partials/_header') %>
 
   <main class="poll-info">
-    <div>
+    <header>
       <h1 class="poll-title"><%= pTitle %></h1>
       <p>Description of Poll</p>
       <p>Instructions</p>
-    </div>
+    </header>
 
     <table class="options-table">
-      <thead>
-        <tr>
-          <th scope="col">rank</th>
-          <th scope="col">option</th>
-        </tr>
-      </thead>
       <tbody>
+        <% let i = 1 %>
         <% for (let id in optionsDb) { %>
-          <tr data-index="optionId1" data-position="rankings.rank">
-            <td>1</td>
-            <td>
+          <tr>
+            <td class="ranking"><%= i %></td>
+            <% i = i+1 %>
+            <td class="option">
               <h3><%=optionsDb[id].title%></h3>
               <p><%=optionsDb[id].description%></p>
             </td>
