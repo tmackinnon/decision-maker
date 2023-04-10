@@ -1,5 +1,6 @@
 $input-color: rgb(33, 155, 211);
 $border-radius: 0.6rem;
+$button-color: black;
 
 main {
   padding-top: 200px;
@@ -11,7 +12,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: antiquewhite;
   padding: 1.5rem 0;
 }
 
@@ -28,24 +28,6 @@ main {
   height: 5rem;
   border-radius: $border-radius ;
   border: 2px solid $input-color;
-}
-
-.option-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 50px 0;
-}
-
-.option-input {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  margin: 1.5rem 0;
-  padding: 1rem 0;
 }
 
 .option-inputs {
@@ -71,16 +53,87 @@ main {
   border-radius: $border-radius;
 }
 
+.option-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-instance {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1.5px solid $input-color;
+  border-radius: $border-radius;
+  background-color: $input-color;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.option-instance h2 {
+  margin: 0;
+}
+
+.option-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  padding: 1rem 0;
+}
+
 .option-changes {
   display: flex;
   flex-direction: column;
+}
+
+.option-number {
+  margin-left: 1.5rem;
 }
 
 .option-number>p {
   margin: 0;
 }
 
+.option-changes {
+  margin-right: 1.5rem;
+}
+
+.edit-button {
+  margin-bottom: 1rem;
+}
+
 .complete-poll {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 8rem;
+}
+
+.input-email {
+  height: 2.5rem;
+  width: 30%;
+  margin-right: 10rem;
+  border: 2px solid $input-color;
+  border-radius: $border-radius;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  background-color: $button-color;
+  color: white;
+  border: 1px solid $button-color;
+  border-radius: $border-radius;
+  transition: 0.15s;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 1px solid $button-color;
+  color: black;
+  background-color: white;
+  transition: 0.15s;
 }
