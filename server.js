@@ -46,42 +46,6 @@ app.get('/', (req, res) => {
 
 
 // Results page
-const winningOption = {};
-
-const optionDatabase = {
-  temp1: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp2: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp3: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp4: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp5: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  }
-};
-
-const pollsDatabase = {};
-
-app.get('/results', (req, res) => {
-  const templateVars = {
-    winningOption,
-    optionDatabase,
-    pollsDatabase
-  };
-
-  res.render("polls_results", templateVars);
-});
 
 // Delete ?
 

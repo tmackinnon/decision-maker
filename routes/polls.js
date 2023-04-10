@@ -31,10 +31,45 @@ router.post('/new', (req, res) => {
 // See Poll Results - LILY
 // GET /polls/:id/results
 // polls_results.ejs
-//
+const winningOption = {};
+
+const optionDatabase = {
+  temp1: {
+    title: "lorem ipsum",
+    description: "dolor sit amet"
+  },
+  temp2: {
+    title: "lorem ipsum",
+    description: "dolor sit amet"
+  },
+  temp3: {
+    title: "lorem ipsum",
+    description: "dolor sit amet"
+  },
+  temp4: {
+    title: "lorem ipsum",
+    description: "dolor sit amet"
+  },
+  temp5: {
+    title: "lorem ipsum",
+    description: "dolor sit amet"
+  }
+};
+
+const pollsDatabase = {};
+
+router.get('/results', (req, res) => {
+  const templateVars = {
+    winningOption,
+    optionDatabase,
+    pollsDatabase
+  };
+
+  res.render("polls_results", templateVars);
+});
 // Delete Poll
 // DELETE /polls/:id
-
+router.post
 
 // Create New Vote - TARA
 // GET /polls/:id
