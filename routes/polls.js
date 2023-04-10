@@ -29,6 +29,8 @@ router.get('/', (req, res) => {
 
 // Create New Vote - TARA - added route
 //data for testing:
+const voteQueries = require('../db/queries/vote');
+
 const pollsDb = {
   "a1": {
     title: "My Poll",
@@ -56,6 +58,14 @@ const pollsDb = {
 // READ
 // GET /polls/:id
 router.get('/:id', (req, res) => {
+  // starting process of connecting to db ignore this for now
+  // const id = req.params.id
+  // console.log('id', id)
+  // voteQueries.getPollInfo(id)
+  //   .then((data) => {
+  //     res.render('polls_vote', data);
+  //   })
+
   const templateVars = {
     pTitle: pollsDb.a1.title,
     optionsDb: optionsDb
