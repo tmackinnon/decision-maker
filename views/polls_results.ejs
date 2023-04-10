@@ -8,6 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
+  <link rel="stylesheet" href="../styles/results.css" type="text/css"/>
+
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
 </head>
@@ -15,20 +17,23 @@
 <body>
   <%- include('partials/_header') %>
   <main style="margin: 1em; display: flex; flex-direction: column; align-items: center;">
-    <div style="border: 1px solid black; margin: 20px; width: 50%; text-align: center;">
+
+    <div id="poll-title" style="border: 1px solid black; margin: 20px; width: 50%; text-align: center;">
       <h1>Poll Title</h1>
       <h4>Poll Description</h4>
     </div>
-    <div style="border: 1px solid black; background-color: olivedrab; margin: 20px; width: 50%; text-align: center;">
+
+    <div id="winning-option" class="option">
       <h1>I'm the winning option!</h1>
       <h4>ASKjaskdghsdjkghnjkascmasjcnkasjn</h4>
     </div>
+
     <% for (let key in optionDatabase) { %>
-      <div style="border: 1px solid black; margin: 20px; width: 50%; text-align: center;">
+      <div class="option">
         <h1><%= optionDatabase[key].title %></h1>
         <h4><%= optionDatabase[key].description %></h4>
       </div>
-        <% } %>
+    <% } %>
 </body>
 
 </html>
