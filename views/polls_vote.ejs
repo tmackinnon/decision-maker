@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="/styles/vote.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-
-  <script type="text/javascript" src="/scripts/sort.js"></script>
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 
@@ -56,5 +56,21 @@
   </main>
 
 </body>
+
+<script>
+  $(() => {
+  $('.options-table tbody').sortable({
+    connectWith: "tbody",
+    update: function (event, ui) {
+      $(this).children().each(function (index) {
+        if ($(this).attr('data-position') !==  (index+1)) {
+          const newPosition = index + 1;
+          $(this).attr('data-position', newPosition);
+        }
+      });
+    }
+  });
+});
+</script>
 
 </html>
