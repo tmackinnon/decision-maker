@@ -45,17 +45,14 @@
 </body>
 <script>
 $(() => {
-  let toggled = false;
   $(".hide-button").click(function() {
     const description = $(this).parent().find(".description");
 
-    if (toggled) {
-      $(description).css({"display" : ""});
-      toggled = false;
-    } else if (!toggled) {
-      $(description).css({"display" : "none"});
-      toggled = true;
+    if ($(description).css("display") === "none") {
+      return $(description).css({"display" : ""});
     }
+
+    return $(description).css({"display" : "none"});
   })
 })
 </script>
