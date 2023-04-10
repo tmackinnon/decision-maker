@@ -19,6 +19,11 @@ router.get('/new', (req, res) => {
   res.render('polls_new');
 });
 
+router.post('/new', (req, res) => {
+  console.log(req.body);
+  res.redirect('/polls/new')
+})
+
 //POST /polls
 //polls_new.ejs
 
