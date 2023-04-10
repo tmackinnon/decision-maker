@@ -28,38 +28,37 @@ router.get('/', (req, res) => {
 
 
 // Create New Vote - TARA - added route
-// READ
-// GET /polls/:id
+//data for testing:
 const pollsDb = {
-  "1": {
+  "a1": {
     title: "My Poll",
     emal: "a@a.com"
   },
-};
-const optionsDb = {
-  "1": {
-    polls_id: 1,
+ };
+ const optionsDb = {
+  "b1": {
+    polls_id: "a1",
     title: "This is the first option",
     description: "this option is awesome"
   },
-  "2": {
-    polls_id: 1,
+  "b2": {
+    polls_id: "a1",
     title: "This is the second option",
     description: "this option is cool"
   },
-  "3": {
-    polls_id: 1,
+  "b3": {
+    polls_id: "a1",
     title: "This is the third option",
     description: "this option is okay"
-  },
-}
+  }
+ };
 
+// READ
+// GET /polls/:id
 router.get('/:id', (req, res) => {
   const templateVars = {
-    id: pollsDb.id,
-    pTitle: pollsDb.title,
-    oTitle: optionsDb.title,
-    oDesc: optionsDb.description
+    pTitle: pollsDb.a1.title,
+    optionsDb: optionsDb
   };
   res.render('polls_vote', templateVars);
 });
@@ -68,7 +67,8 @@ router.get('/:id', (req, res) => {
 // POST /polls/:id
 // polls_vote.ejs
 router.post('/:id', (req, res) => {
-  res.render('polls_vote');
+  console.log('req.body', req.body) //output: {voter_name: Tara}
+  res.redirect('/');
 });
 
 
