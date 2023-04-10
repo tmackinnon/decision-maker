@@ -14,15 +14,19 @@ router.get('/', (req, res) => {
 });
 
 // Create new polls - OMAR
+
 //GET /polls/new
 router.get('/new', (req, res) => {
-  res.render('polls_new');
+  res.render('create_poll');
 });
 
 router.post('/new', (req, res) => {
-  console.log(req.body);
-  res.redirect('/polls/new')
+  res.redirect('/options/1')
 })
+
+
+// GET options/:pollid/
+// POST options/:pollid/
 
 //POST /polls
 //polls_new.ejs
