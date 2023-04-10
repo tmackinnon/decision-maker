@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS polls CASCADE;
+DROP TABLE IF EXISTS options CASCADE;
+DROP TABLE IF EXISTS rankings CASCADE;
+
+CREATE TABLE polls (
+  id SERIAL PRIMARY KEY NOT NULL,
+  email TEXT NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT,
+  admin_link TEXT,
+  vote_link TEXT
+);
+
+CREATE TABLE options (
+  id SERIAL PRIMARY KEY NOT NULL,
+  poll_id INTEGER REFERENCES polls(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  description TEXT
+);
+
+
+CREATE TABLE rankings (
+  id SERIAL PRIMARY KEY NOT NULL,
+  option_id INTEGER REFERENCES options(id) ON DELETE CASCADE,
+  voter_name TEXT,
+  rank INTEGER
+);
