@@ -16,17 +16,18 @@ $border-radius: 0.6rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
 
-    .poll-title {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+        .poll-title {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
     }
 
     .options-table {
-      width: 50%;
       margin-bottom: 50px;
+      margin-top: 50px;
+      width: 50%;
 
       .ranking {
         border: 1px solid rgb(45, 44, 44);
@@ -40,6 +41,7 @@ $border-radius: 0.6rem;
         border-radius: $border-radius;
         padding: 30px;
       }
+
 
     }
 
