@@ -12,6 +12,8 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
+
+  <script type="text/javascript" src="../public/scripts/app.js"></script>
 </head>
 
 <body>
@@ -30,9 +32,26 @@
     <% for (let key in optionDatabase) { %>
       <div class="option">
         <h1><%= optionDatabase[key].title %></h1>
-        <h4><%= optionDatabase[key].description %></h4>
+        <button class="hide-button"> Hide Description </button>
+        <h4 class="description"><%= optionDatabase[key].description %></h4>
       </div>
     <% } %>
 </body>
+<script>
+$(() => {
+  let toggled = false;
+  $(".hide-button").click(function() {
+    const description = $(this).parent().find(".description");
+
+    if (toggled) {
+      $(description).css({"display" : ""});
+      toggled = false;
+    } else if (!toggled) {
+      $(description).css({"display" : "none"});
+      toggled = true;
+    }
+  })
+})
+</script>
 
 </html>
