@@ -31,23 +31,22 @@
       <p>Instructions</p>
     </header>
 
-    <table class="options-table">
-      <tbody>
-        <% let i = 1 %>
-        <% for (let id in optionsDb) { %>
-          <tr>
-            <td class="ranking"><%= i %></td>
-            <td class="option" data-position='<%= i %>'>
-              <h3><%=optionsDb[id].title%></h3>
-              <p><%=optionsDb[id].description%></p>
-              <% i = i+1 %>
-            </td>
-          </tr>
-      </tbody>
-      <% } %>
-    </table>
-
     <form method="POST" action="/polls/:id">
+      <table class="options-table">
+        <tbody>
+          <% let i = 1 %>
+          <% for (let id in optionsDb) { %>
+        <tr data-position='<%= i %>'>
+          <td>
+            <h3><%=optionsDb[id].title%></h3>
+            <p><%=optionsDb[id].description%></p>
+            </td>
+        </tr>
+          <% i = i+1 %>
+          <% } %>
+        </tbody>
+      </table>
+
       <label for="vote"></label>
       <input name="voter_name" id="vote" placeholder="Enter your name"> </input>
       <button type="submit">Submit</button>
@@ -55,21 +54,19 @@
 
   </main>
 
+
 </body>
 
 <script>
   $(() => {
   $('.options-table tbody').sortable({
     connectWith: "tbody",
-    update: function (event, ui) {
-      $(this).children().each(function (index) {
-        if ($(this).attr('data-position') !==  (index+1)) {
-          const newPosition = index + 1;
-          $(this).attr('data-position', newPosition);
-        }
-      });
+    stop: function (event, ui) {
+      const sortedIds = $('.options-table tbody').sortable('toArray', {attribute: 'data-position'});
+      console.log('sortedIds', sortedIds); //array the new order [1,3,2]
     }
   });
+
 });
 </script>
 
