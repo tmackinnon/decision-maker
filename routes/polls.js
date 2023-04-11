@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router = express.Router();
+const { createPoll, addLinks } = require('../db/queries/create_poll');
 
 //HOMEPAGE
 router.get('/', (req, res) => {
@@ -21,8 +22,17 @@ router.get('/new', (req, res) => {
 });
 
 router.post('/new', (req, res) => {
-  res.redirect('/options/1')
-})
+  const { email , title, description } = req.body;
+
+  if(!email || !title) {
+    // ToDo
+    console.log('didn\'t provide data');
+    return res.redirect('/polls/new');
+  }
+  createPoll(email, title, description)
+  .then(id => addLinks(`localhost:8080/polls/${id}`, `localhost:8080/polls/${id}`, id))
+  .then(id => res.redirect(`/options/${id}`))
+});
 
 
 // GET options/:pollid/
