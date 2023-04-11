@@ -11,7 +11,7 @@ const getPollInfo = (id) => {
 
   return db
     .query(queryString, [id])
-    .then(data => {
+    .then((data) => {
       return data.rows;
     });
 };
