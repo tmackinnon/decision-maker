@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router = express.Router();
+const { createPoll, addLinks } = require('../db/queries/create_poll');
 
 //HOMEPAGE
 router.get('/', (req, res) => {
@@ -14,15 +15,28 @@ router.get('/', (req, res) => {
 });
 
 // Create new polls - OMAR
+
 //GET /polls/new
 router.get('/new', (req, res) => {
-  res.render('polls_new');
+  res.render('create_poll');
 });
 
 router.post('/new', (req, res) => {
-  console.log(req.body);
-  res.redirect('/polls/new')
-})
+  const { email , title, description } = req.body;
+
+  if(!email || !title) {
+    // ToDo
+    console.log('didn\'t provide data');
+    return res.redirect('/polls/new');
+  }
+  createPoll(email, title, description)
+  .then(id => addLinks(`http://localhost:8080/polls/${id}`, `http://localhost:8080/polls/${id}`, id))
+  .then(id => res.redirect(`/options/${id}`))
+});
+
+
+// GET options/:pollid/
+// POST options/:pollid/
 
 //POST /polls
 //polls_new.ejs
