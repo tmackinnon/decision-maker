@@ -30,7 +30,7 @@ router.post('/new', (req, res) => {
     return res.redirect('/polls/new');
   }
   createPoll(email, title, description)
-  .then(id => addLinks(`localhost:8080/polls/${id}`, `localhost:8080/polls/${id}`, id))
+  .then(id => addLinks(`http://localhost:8080/polls/${id}`, `http://localhost:8080/polls/${id}`, id))
   .then(id => res.redirect(`/options/${id}`))
 });
 
