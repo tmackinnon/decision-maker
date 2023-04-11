@@ -87,7 +87,7 @@ router.get('/:id', (req, res) => {
 // POST /polls/:id
 // polls_vote.ejs
 router.post('/:id', (req, res) => {
-  voteQueries.submitVotes(req.body);
+  voteQueries.saveVotes(req.body);
   res.redirect('/');
 });
 

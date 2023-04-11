@@ -16,7 +16,7 @@ const getPollInfo = (id) => {
     });
 };
 
-const submitVotes = (object) => {
+const saveVotes = (object) => {
   const voter_name = object.voter_name;
   const optionIds = object.sortedIds;
   for (let i = 0; i < optionIds.length; i++) {
@@ -35,7 +35,7 @@ const submitVotes = (object) => {
 }
 
 
-module.exports = { getPollInfo, submitVotes };
+module.exports = { getPollInfo, saveVotes };
 
 
 
