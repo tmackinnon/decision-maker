@@ -31,26 +31,26 @@
       <p>Instructions</p>
     </header>
 
-    <table class="options-table">
-      <tbody id="body" data-id="<%= pollId %>">
-        <% let i = 1 %>
-        <% for (let obj of options) { %>
-          <tr data-position='<%= obj.id %>' class="option-box">
-            <td class="ranking"><%= i %></td>
-            <td class="option">
-              <h3><%=obj.otitle%></h3>
-              <p><%=obj.odesc%></p>
-            </td>
-          </tr>
-          <% i = i+1 %>
-          <% } %>
-        </tbody>
-      </table>
+      <table class="options-table">
+        <tbody id="body" data-id="<%= pollId %>">
+          <% let i = 1 %>
+          <% for (let obj of options) { %>
+            <tr data-position='<%= obj.id %>' class="option-box">
+              <td class="ranking"><%= i %></td>
+              <td class="option">
+                <h3><%=obj.otitle%></h3>
+                <p><%=obj.odesc%></p>
+              </td>
+            </tr>
+            <% i = i+1 %>
+            <% } %>
+          </tbody>
+        </table>
 
     <form class="voter-name-form">
       <label for="vote"></label>
       <input name="voter_name" id="vote" placeholder="Enter your name"> </input>
-      <button type="submit">Submit</button>
+      <button type="submit" class="submit-button">Submit</button>
     </form>
 
   </main>
@@ -76,6 +76,16 @@
     //grab the voter name for the post request
     const voter = $('#vote').val();
 
+    //create html for submission box
+    const $submissionBox = $(`
+    <div id="submission-box">
+      <h1>Thanks for your submission</h1>
+      <div id="button-box">
+        <a href="/polls"><button>Home</button></a>
+        <a href="/polls/new"><button>New Poll</button></a>
+      </div>
+    </div>`)
+
     //send the rankings and votername back to server
     $.ajax({
       type: 'POST',
@@ -84,8 +94,15 @@
         sortedIds: sortedIds,
         voter_name: voter
       }
-    })
+    }).then(() => {
+      $('#vote').val('');
+      $('.options-table').empty(); //clear the poll info to simulate a refresh
+      $('.voter-name-form').empty();
+      // add in a new html box saying thanks for submitting click here to go to the home page
+      $('.options-table').append($submissionBox);
+    });
   })
+
 });
 </script>
 
