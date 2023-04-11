@@ -69,7 +69,12 @@ router.get('/results', (req, res) => {
 });
 // Delete Poll
 // DELETE /polls/:id
-router.post
+router.post('/results/:id/delete', (req, res) => {
+  let queryString = `
+    DELETE FROM
+  `
+  let params = req.params.id;
+})
 
 // Create New Vote - TARA
 // GET /polls/:id
