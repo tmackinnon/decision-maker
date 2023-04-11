@@ -67,26 +67,28 @@ const pollsDb = {
 // READ
 // GET /polls/:id
 router.get('/:id', (req, res) => {
-  // starting process of connecting to db ignore this for now
-  // const id = req.params.id
-  // console.log('id', id)
-  // voteQueries.getPollInfo(id)
-  //   .then((data) => {
-  //     res.render('polls_vote', data);
-  //   })
+  const id = req.params.id
 
-  const templateVars = {
-    pTitle: pollsDb.a1.title,
-    optionsDb: optionsDb
-  };
-  res.render('polls_vote', templateVars);
+  //grab info needed from db
+  voteQueries.getPollInfo(id)
+    .then((data) => {
+        const templateVars = {
+          pollId: id,
+          pollTitle: data[0]['ptitle'],
+          pollDesc: data[0]['pdesc'],
+          options: data
+        };
+
+        res.render('polls_vote', templateVars);;
+      })
 });
 
 //ADD
 // POST /polls/:id
 // polls_vote.ejs
 router.post('/:id', (req, res) => {
-  console.log('req.body', req.body) //output: {voter_name: Tara}
+  console.log('req.body', req.body) //output: req.body { sortedIds: [ '2', '1', '3' ], voter: 'Tara' }
+
   res.redirect('/');
 });
 

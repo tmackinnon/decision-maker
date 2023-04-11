@@ -26,20 +26,20 @@
 
   <main class="poll-info">
     <header>
-      <h1 class="poll-title"><%= pTitle %></h1>
-      <p>Description of Poll</p>
+      <h1 class="poll-title"><%= pollTitle %></h1>
+      <p><%= pollDesc %></p>
       <p>Instructions</p>
     </header>
 
     <table class="options-table">
       <tbody id="body" data-id="<%= pollId %>">
         <% let i = 1 %>
-        <% for (let id in optionsDb) { %>
-          <tr data-position='<%= i %>' class="option-box">
+        <% for (let obj of options) { %>
+          <tr data-position='<%= obj.id %>' class="option-box">
             <td class="ranking"><%= i %></td>
             <td class="option">
-              <h3><%=optionsDb[id].title%></h3>
-              <p><%=optionsDb[id].description%></p>
+              <h3><%=obj.otitle%></h3>
+              <p><%=obj.odesc%></p>
             </td>
           </tr>
           <% i = i+1 %>
@@ -59,29 +59,30 @@
 
 <script>
   $(() => {
+  //Implement drag and drop to sort options
   $('.options-table tbody').sortable({
     connectWith: "tbody",
-    stop: function (event, ui) {
-      const sortedIds = $('.options-table tbody').sortable('toArray', {attribute: 'data-position'});
-      console.log('sortedIds', sortedIds); //array of the new order e.g. [1,3,2]
-    }
   });
 
+  //Once the voter submits the form collect their name and rankings
   $('.voter-name-form').on('submit', (event) => {
     event.preventDefault();
+
+    //grab the data that we want to send back to the server
+    //store option_id in an array to see ranking order
     const sortedIds = $('.options-table tbody').sortable('toArray', {attribute: 'data-position'});
+    //grab poll id to be used in the post request url
     const id = $('#body').data().id;
-    console.log(id);
-
+    //grab the voter name for the post request
     const voter = $('#vote').val();
-    console.log(voter)
 
+    //send the rankings and votername back to server
     $.ajax({
       type: 'POST',
       url: `/polls/${id}`,
       data: {
         sortedIds: sortedIds,
-        voter: voter
+        voter_name: voter
       }
     })
   })
