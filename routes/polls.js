@@ -8,6 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const { createPoll, addLinks } = require('../db/queries/create_poll');
+const { voteQueries } = require('../db/queries/vote');
 
 //HOMEPAGE
 router.get('/', (req, res) => {
@@ -77,8 +78,8 @@ router.get('/results', (req, res) => {
 // Delete Poll
 // DELETE /polls/:id
 
-// Create New Vote - TARA - added route
-const voteQueries = require('../db/queries/vote');
+// Create New Vote - TARA
+
 
 // READ
 // GET /polls/:id
@@ -104,6 +105,7 @@ router.get('/:id', (req, res) => {
 // polls_vote.ejs
 router.post('/:id', (req, res) => {
   voteQueries.saveVotes(req.body);
+  // console.log(req.params.id) //poll id
   res.redirect('/');
 });
 
