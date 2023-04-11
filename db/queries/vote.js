@@ -16,29 +16,26 @@ const getPollInfo = (id) => {
     });
 };
 
-//req.body= { sortedIds: [ '2', '1', '3' ], voter: 'Tara' }
+const submitVotes = (object) => {
+  const voter_name = object.voter_name;
+  const optionIds = object.sortedIds;
+  for (let i = 0; i < optionIds.length; i++) {
+    const queryParams = [optionIds[i], voter_name, i];
+    const queryString = `
+    INSERT INTO rankings (option_id, voter_name, rank)
+    VALUES ($1, $2, $3)
+    RETURNING *;
+    `;
 
-// const submitVotes = (object) => {
-//   const voter_name = object.voter;
-//   const optionIds = object.sortedIds; //[ '2', '1', '3' ]
-//   for (const options of optionIds) {
+    //ask if you need to return db ??? or have a promise like in lightbnb??
+    db.query(queryString, queryParams)
 
-//   }
-//   const queryParams = [];
-//   const queryString = `
-//   INSERT INTO rankings (option_id, voter_name, rank)
-//   VALUES ($1, $2, $3)
-//   RETURNING *;
-//   `;
+  }
 
-//   return db
-//     .query(queryString, queryParams)
-//     .then()
-
-// }
+}
 
 
-module.exports = { getPollInfo };
+module.exports = { getPollInfo, submitVotes };
 
 
 
