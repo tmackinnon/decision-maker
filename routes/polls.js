@@ -35,13 +35,6 @@ router.post('/new', (req, res) => {
 });
 
 
-// GET options/:pollid/
-// POST options/:pollid/
-
-//POST /polls
-//polls_new.ejs
-
-
 // See Poll Results - LILY
 // Results page
 const winningOption = {};
@@ -84,12 +77,35 @@ router.get('/results', (req, res) => {
 // Delete Poll
 // DELETE /polls/:id
 
+// Create New Vote - TARA - added route
+const voteQueries = require('../db/queries/vote');
 
-// Create New Vote - TARA
+// READ
 // GET /polls/:id
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+
+  //grab info needed from db
+  voteQueries.getPollInfo(id)
+    .then((data) => {
+        const templateVars = {
+          pollId: id,
+          pollTitle: data[0]['ptitle'],
+          pollDesc: data[0]['pdesc'],
+          options: data
+        };
+
+        res.render('polls_vote', templateVars);;
+      })
+});
+
+//ADD
 // POST /polls/:id
 // polls_vote.ejs
-
+router.post('/:id', (req, res) => {
+  voteQueries.saveVotes(req.body);
+  res.redirect('/');
+});
 
 
 module.exports = router;

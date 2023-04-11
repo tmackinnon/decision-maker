@@ -1,0 +1,98 @@
+$border: 1px solid rgb(45, 44, 44);
+$border-radius: 0.6rem;
+$button-cursor: pointer;
+
+
+.poll-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 200px;
+  align-items: center;
+  margin-bottom: 100px;
+
+    header {
+      margin-top: 50px;
+      border: $border;
+      border-radius: $border-radius;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+        .poll-title {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+    }
+
+    .options-table {
+      margin-bottom: 50px;
+      margin-top: 50px;
+      width: 50%;
+
+      .ranking {
+        border: 1px solid rgb(45, 44, 44);
+        border-radius: $border-radius;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .option {
+        cursor: $button-cursor;
+        border: $border;
+        border-radius: $border-radius;
+        padding: 15px;
+        padding-left: 30px;
+      }
+
+
+    }
+
+  .submit-button {
+      background-color: #efddda;
+      color: #ED6A5A;
+      border: .01px #6b605442 solid;
+      border-radius: 3px;
+      cursor: $button-cursor;
+
+    }
+
+    .submit-button:hover {
+      background-color: #ED6A5A;
+      color: #efddda ;
+    }
+
+    .voter-name-form {
+      width: 50%;
+      display: flex;
+    }
+
+    #vote {
+      width: 1000%;
+      height: 3rem;
+      padding: 2%;
+      margin-right: 20px;
+    }
+
+}
+
+#submission-box {
+  text-align: center;
+  border-radius: $border-radius;
+  background: #E2EB98;
+  padding: 1vw;
+
+
+  #button-box {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  button {
+    margin-bottom: 20px;
+    cursor: $button-cursor;
+  }
+
+
+}
