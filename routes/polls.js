@@ -36,33 +36,12 @@ router.post('/new', (req, res) => {
 // DELETE /polls/:id
 
 
-// Create New Vote - TARA - added route
-//data for testing:
-const voteQueries = require('../db/queries/vote');
 
-const pollsDb = {
-  "a1": {
-    title: "My Poll",
-    emal: "a@a.com"
-  },
- };
- const optionsDb = {
-  "b1": {
-    polls_id: "a1",
-    title: "This is the first option",
-    description: "this option is awesome"
-  },
-  "b2": {
-    polls_id: "a1",
-    title: "This is the second option",
-    description: "this option is cool"
-  },
-  "b3": {
-    polls_id: "a1",
-    title: "This is the third option",
-    description: "this option is okay"
-  }
- };
+
+
+
+// Create New Vote - TARA - added route
+const voteQueries = require('../db/queries/vote');
 
 // READ
 // GET /polls/:id
