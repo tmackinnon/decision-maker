@@ -29,12 +29,11 @@ article {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
 }
 
 .poll-title-input label,
 .poll-description-input label {
-  margin-bottom: 0.6rem;
+  margin: 0.6rem 0;
 }
 
 .poll-title-input input,
@@ -48,6 +47,7 @@ article {
   width: 18vw;
   padding: 0.4rem 0.5rem;
   border-radius: 0.3rem;
+  margin-bottom: 2rem;
 }
 
 .poll-description-input textarea {
@@ -59,7 +59,7 @@ article {
 
 footer {
   min-width: 250px;
-  width: 25vw;
+  width: 23vw;
   display: flex;
   justify-content: center;
   align-items: center;

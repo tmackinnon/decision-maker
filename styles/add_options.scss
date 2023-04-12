@@ -8,6 +8,16 @@ main {
   align-items: center;
 }
 
+.new-option {
+  width: 50%;
+  min-width: 260px;
+  margin-top: 100px;
+  background-color: $secondary-colour;
+  padding: 2rem 3rem;
+  border-radius: 0.6rem;
+  border: 2px solid $fourth-colour;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -21,7 +31,48 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+}
+
+.option-title-input-container label,
+.option-description-input-container label {
+  margin: 0.6rem 0;
+}
+
+.option-title-input-container input,
+.option-description-input-container textarea {
+  min-width: 250px;
+  border: 1px solid $border-color;
+}
+
+.option-title-input-container input {
+  width: 18vw;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid $border-color;
+  border-radius: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+textarea {
+  width: 23vw;
+  height: 70px;
+  border: 1px solid $border-color;
+  border-radius: 0.5rem;
+  resize: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: $fourth-colour;
+  border: 0.1px solid $border-color;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.3rem;
+  color: $third-colour;
+}
+
+button:hover {
+  background-color: $third-colour;
+  color: $fourth-colour;
+  transition: 0.3s;
 }
 
 #add-option {
@@ -29,8 +80,8 @@ header {
 }
 
 .option-container {
+  width: 50vw;
   margin-top: 3rem;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,12 +89,14 @@ header {
 }
 
 .option-instance {
-  width: 45%;
-  border: 1px solid black;
+  width: 100%;
+  border: 2px solid $fourth-colour;
+  border-radius: $options-border-radius;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 2rem;
+  margin: 0.3rem 0;
+  background-color: white;
 }
 
 .option-info {
@@ -56,9 +109,11 @@ header {
 
 .option-description-info {
   width: 100%;
+  text-align: center;
 }
 
 .option-description-info p {
+  margin-top: 0;
   word-wrap: break-word;
 }
 
