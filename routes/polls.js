@@ -8,7 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const { createPoll, addLinks } = require('../db/queries/create_poll');
-const { voteQueries } = require('../db/queries/vote');
+const voteQueries = require('../db/queries/vote');
 
 //HOMEPAGE
 router.get('/', (req, res) => {
