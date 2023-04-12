@@ -1,7 +1,22 @@
 @import 'variables';
 
 main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
   padding-top: 200px;
+}
+
+.form-container {
+  margin-top: 100px;
+  background-color: $secondary-colour;
+  padding: 2rem 3rem;
+  border-radius: 0.6rem;
+  border: 2px solid $fourth-colour;
+}
+
+article {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,13 +32,60 @@ main {
   margin-top: 2rem;
 }
 
+.poll-title-input label,
+.poll-description-input label {
+  margin-bottom: 0.6rem;
+}
+
+.poll-title-input input,
+.poll-description-input textarea {
+  min-width: 250px;
+  border: 1px solid $border-color;
+}
+
+
+.poll-title-input input {
+  width: 18vw;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.poll-description-input textarea {
+  width: 23vw;
+  height: 70px;
+  border-radius: 0.5rem;
+  resize: none;
+}
+
 footer {
+  min-width: 250px;
+  width: 25vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  padding-top: 2.5rem;
 }
 
 .user-email-input {
-  margin-right: 4%;
+  min-width: 150px;
+  width: 15vw;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid $border-color;
+  border-radius: 0.3rem;
+  margin-right: 10%;
+}
+
+#submit-poll {
+  cursor: pointer;
+  background-color: $fourth-colour;
+  border: 0.1px solid $border-color;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.3rem;
+  color: $third-colour;
+}
+
+#submit-poll:hover {
+  background-color: $third-colour;
+  color: $fourth-colour;
+  transition: 0.3s;
 }
