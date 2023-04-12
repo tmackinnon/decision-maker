@@ -27,7 +27,6 @@ router.post('/', (req, res) => {
 
 router.post('/delete/:id', (req, res) => {
   const optionId = req.params.id;
-  console.log("Click!");
   deleteOption([optionId]);
 })
 

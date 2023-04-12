@@ -9,7 +9,7 @@ const insertOption = (poll_id, title, description=null) => {
 
 const getOptions = (poll_id) => {
   const values = [ poll_id ];
-  const queryString = `SELECT * FROM options WHERE poll_id = $1`;
+  const queryString = `SELECT * FROM options WHERE poll_id = $1 ORDER BY id DESC`;
   return db.query(queryString, values)
     .then(option => option.rows)
 }
