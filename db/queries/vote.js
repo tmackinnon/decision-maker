@@ -30,17 +30,30 @@ const saveVotes = (object) => {
     RETURNING *;
     `;
 
-   return db
-    .query(queryString, queryParams)
-    .catch((err) => {
+   db
+   .query(queryString, queryParams)
+   .catch((err) => {
       console.log(err.message);
     });
   }
+  return;
+}
 
+const getAdminEmail = (id) => {
+  const queryString = `SELECT email FROM polls WHERE id = $1;`
+
+  return db
+    .query(queryString, [id])
+    .then((data) => {
+      return data.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 }
 
 
-module.exports = { getPollInfo, saveVotes };
+module.exports = { getPollInfo, saveVotes, getAdminEmail };
 
 
 
