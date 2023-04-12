@@ -92,6 +92,30 @@ router.post('/:id', (req, res) => {
   console.log(req.body)
   // console.log(req.params.id) //poll id
   res.status(200).json({ success: true });
+
+  const id = req.params.id;
+  voteQueries.getAdminEmail(id)
+    .then((emailObj) => {
+      const admin = emailObj.email
+    })
+
+  // MAILGUN SECTION to go inside .then:
+  // const mailgun = require("mailgun-js"); //move this to the top of the page
+  // const DOMAIN = 'sandbox56b347cc4f5a43238ed569160b490f96.mailgun.org';
+  // const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN});
+  // const data = {
+  //   from: 'Decision Maker Team <taramackinnon4@gmail.com>',
+  //   to: admin,
+  //   subject: 'Your Poll Has Received More Votes!',
+  //   text: 'Hi, ___. Your poll has received '
+  // };
+  // mg.messages().send(data, function (error, body) {
+  //   if (error) {
+  //     console.log(error);
+  //   }
+  //   console.log(body);
+  // });
+
 });
 
 

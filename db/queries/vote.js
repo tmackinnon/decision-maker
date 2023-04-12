@@ -39,8 +39,21 @@ const saveVotes = (object) => {
   return;
 }
 
+const getAdminEmail = (id) => {
+  const queryString = `SELECT email FROM polls WHERE id = $1;`
 
-module.exports = { getPollInfo, saveVotes };
+  return db
+    .query(queryString, [id])
+    .then((data) => {
+      return data.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+
+module.exports = { getPollInfo, saveVotes, getAdminEmail };
 
 
 
