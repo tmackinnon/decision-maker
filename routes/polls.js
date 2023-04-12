@@ -114,16 +114,14 @@ router.post('/:id', (req, res) => {
         from: process.env.OUTLOOK_USER,
         to: admin,
         subject: 'Your Poll Has Received a Submission!',
-        text: `
-        Your poll has received a submission!
+        html:`
+        <h3>Your poll has received a submission!</h3>
 
-        ${voter_name} has voted on your poll: ${title}.
-        Checkout the results here: ${adminLink}.
-        Send your poll to more people with the following link: ${voteLink}.
+       <p>${voter_name} has voted on your poll: ${title}.</p>
+       <p>Checkout the results here: <a href="${adminLink}">Results</a>.
+       <p>Or send your poll to more people by using the following link: <a href="${voteLink}">Vote Link<a>.</p>
 
-        Happy decision making,
-        LHL Decision Maker Team
-        `
+        <p>Happy decision making,<br>LHL Decision Maker Team</p>`
       }
 
       transporter.sendMail(options, (err, info) => {
