@@ -1,6 +1,8 @@
+@import 'variables';
+
 .header {
   width: 100%;
-  background-color: rgb(161, 195, 235);
+  background-color: $main-colour;
   height: 200px;
   position: fixed;
 }
