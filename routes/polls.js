@@ -8,6 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const { createPoll, addLinks } = require('../db/queries/create_poll');
+const voteQueries = require('../db/queries/vote');
 
 //HOMEPAGE
 router.get('/', (req, res) => {
@@ -36,49 +37,33 @@ router.post('/new', (req, res) => {
 
 
 // See Poll Results - LILY
-// Results page
-const winningOption = {};
 
-const optionDatabase = {
-  temp1: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp2: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp3: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp4: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  },
-  temp5: {
-    title: "lorem ipsum",
-    description: "dolor sit amet"
-  }
-};
+const resultQueries = require('../db/queries/results');
 
-const pollsDatabase = {};
+router.get('/:id/results', (req, res) => {
+  // const templateVars = {
+  //   winningOption,
+  //   optionDatabase,
+  //   pollsDatabase
+  // };
 
-router.get('/results', (req, res) => {
-  const templateVars = {
-    winningOption,
-    optionDatabase,
-    pollsDatabase
-  };
-
-  res.render("polls_results", templateVars);
+  const id = [req.params.id];
+  resultQueries.getRankings(id)
+    .then(data => {
+      const templateVars = {
+        results: data
+      };
+      console.log(templateVars);
+      res.render("polls_results", templateVars);
+  })
 });
 
 // Delete Poll
 // DELETE /polls/:id
 
-// Create New Vote - TARA - added route
-const voteQueries = require('../db/queries/vote');
+// Create New Vote - TARA
+
+
 
 // READ
 // GET /polls/:id
@@ -95,7 +80,7 @@ router.get('/:id', (req, res) => {
           options: data
         };
 
-        res.render('polls_vote', templateVars);;
+        res.render('polls_vote', templateVars);
       })
 });
 
@@ -104,7 +89,8 @@ router.get('/:id', (req, res) => {
 // polls_vote.ejs
 router.post('/:id', (req, res) => {
   voteQueries.saveVotes(req.body);
-  res.redirect('/');
+  // console.log(req.params.id) //poll id
+  res.status(200).json({ success: true });
 });
 
 

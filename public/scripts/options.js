@@ -46,5 +46,4 @@ const createOption = (option) => {
       $('#option-description-input').val('');
     })
   })
-
 });

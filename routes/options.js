@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { insertOption, getOptions } = require('../db/queries/create_option');
+const { deleteOption } = require('../db/queries/delete_option');
 
 
 
@@ -23,4 +24,11 @@ router.post('/', (req, res) => {
   insertOption(pollId, title, description)
     .then(option => res.json(option));
 });
+
+router.post('/delete/:id', (req, res) => {
+  const optionId = req.params.id;
+  console.log("Click!");
+  deleteOption([optionId]);
+})
+
 module.exports = router;

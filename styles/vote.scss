@@ -1,6 +1,11 @@
-$border: 1px solid rgb(45, 44, 44);
+$border: 1px solid #2d2c2c51;
 $border-radius: 0.6rem;
 $button-cursor: pointer;
+$dark-pink: #ED6A5A;
+$light-pink: #efddda;
+$light-green: #E2EB98;
+$header-blue: #a1c3eb;
+$grey: #5d6369fb;
 
 
 .poll-info {
@@ -12,8 +17,6 @@ $button-cursor: pointer;
 
     header {
       margin-top: 50px;
-      border: $border;
-      border-radius: $border-radius;
       width: 50%;
       display: flex;
       flex-direction: column;
@@ -23,20 +26,59 @@ $button-cursor: pointer;
           display: flex;
           flex-direction: row;
           justify-content: center;
+          margin-bottom: none;
+        }
+
+        #title-box {
+          background: $light-green;
+          border-radius: 0.6rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+
+          span {
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+
+          h1{
+            margin: 0;
+          }
+        }
+
+        #instructions {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+          color: #5d6369fb;
         }
     }
 
-    .options-table {
-      margin-bottom: 50px;
-      margin-top: 50px;
+    .sortable-options {
+      background: $light-green;
+      padding: 10px;
+      border: none;
+      border-radius: 0.6rem;
       width: 50%;
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       .ranking {
-        border: 1px solid rgb(45, 44, 44);
-        border-radius: $border-radius;
-        padding: 30px;
-        text-align: center;
+        color: $grey;
+        margin: 10px;
       }
+    }
+
+    .options-table {
+      margin-bottom: 10px;
+      margin-top: 10px;
+      width: 100%;
+    }
 
       .option {
         cursor: $button-cursor;
@@ -44,14 +86,15 @@ $button-cursor: pointer;
         border-radius: $border-radius;
         padding: 15px;
         padding-left: 30px;
+        background-color: whitesmoke;
       }
 
 
     }
 
   .submit-button {
-      background-color: #efddda;
-      color: #ED6A5A;
+      background-color: $light-pink;
+      color: $dark-pink;
       border: .01px #6b605442 solid;
       border-radius: 3px;
       cursor: $button-cursor;
@@ -59,8 +102,8 @@ $button-cursor: pointer;
     }
 
     .submit-button:hover {
-      background-color: #ED6A5A;
-      color: #efddda ;
+      background-color: $dark-pink;
+      color: $light-pink;
     }
 
     .voter-name-form {
@@ -75,13 +118,14 @@ $button-cursor: pointer;
       margin-right: 20px;
     }
 
-}
 
-#submission-box {
-  text-align: center;
-  border-radius: $border-radius;
-  background: #E2EB98;
-  padding: 1vw;
+
+  #submission-box {
+    text-align: center;
+    border-radius: $border-radius;
+    border: $dark-pink 0.5px solid;
+    padding: 1%;
+    width: 50%;
 
 
   #button-box {
@@ -91,8 +135,17 @@ $button-cursor: pointer;
 
   button {
     margin-bottom: 20px;
+    background-color: $dark-pink;
+    color: $light-pink;
+    border: .01px #6b605442 solid;
+    border-radius: 3px;
     cursor: $button-cursor;
+    padding: 8px;
   }
 
+  button:hover {
+    background-color: $light-pink;
+    color: $dark-pink;
+  }
 
 }
