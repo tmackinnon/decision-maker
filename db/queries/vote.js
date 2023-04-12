@@ -11,8 +11,11 @@ const getPollInfo = (id) => {
 
   return db
     .query(queryString, [id])
-    .then(data => {
+    .then((data) => {
       return data.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
     });
 };
 
@@ -27,9 +30,11 @@ const saveVotes = (object) => {
     RETURNING *;
     `;
 
-    //ask if you need to return db ??? or have a promise like in lightbnb??
-    db.query(queryString, queryParams)
-
+   return db
+    .query(queryString, queryParams)
+    .catch((err) => {
+      console.log(err.message);
+    });
   }
 
 }

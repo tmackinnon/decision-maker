@@ -4,6 +4,9 @@ INSERT INTO polls (email, title, description, admin_link, vote_link) VALUES ('ra
 INSERT INTO options (poll_id, title, description) VALUES (1, 'The Hobbit', 'FANTASY');
 INSERT INTO options (poll_id, title, description) VALUES (1, 'The Truman Show', 'COMEDY');
 INSERT INTO options (poll_id, title, description) VALUES (1, 'Iron Man', 'Action movie');
+INSERT INTO options (poll_id, title, description) VALUES (1, 'Moana', 'Cartoon movie');
+INSERT INTO options (poll_id, title, description) VALUES (1, 'Almost Famous', 'My personal favourite');
+INSERT INTO options (poll_id, title, description) VALUES (1, 'No movie at all', 'Or we could go out for dinner');
 
 INSERT INTO options (poll_id, title, description) VALUES (2, 'Gangsta''s Paradise', 'Coolio');
 INSERT INTO options (poll_id, title, description) VALUES (2, 'Waterfalls', 'TLC');

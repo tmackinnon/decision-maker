@@ -60,13 +60,14 @@
   $(() => {
     $(".option-container").on("click", ".delete-option", function() {
       const options_id = $(this).attr('id');
+
       $.ajax({
         type: 'POST',
         url: `/options/delete/${options_id}`,
         data: options_id
-      }).then(() => {
-        console.log("A");
       })
+
+      $(this).parent().remove();
     })
   })
 </script>
