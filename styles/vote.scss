@@ -3,10 +3,6 @@
 $border: 1px solid #2d2c2c51;
 $border-radius: 0.6rem;
 $button-cursor: pointer;
-$dark-pink: #ED6A5A;
-$light-pink: #efddda;
-$light-green: #E2EB98;
-$header-blue: #a1c3eb;
 $grey: #5d6369fb;
 
 
@@ -32,7 +28,7 @@ $grey: #5d6369fb;
         }
 
         #title-box {
-          background: $light-green;
+          background: $secondary-colour;
           border-radius: 0.6rem;
           display: flex;
           flex-direction: column;
@@ -60,10 +56,10 @@ $grey: #5d6369fb;
     }
 
     .sortable-options {
-      background: $light-green;
+      background: $secondary-colour;
       padding: 10px;
       border: none;
-      border-radius: 0.6rem;
+      border-radius: $options-border-radius;
       width: 50%;
       margin-bottom: 50px;
       display: flex;
@@ -95,8 +91,8 @@ $grey: #5d6369fb;
     }
 
   .submit-button {
-      background-color: $light-pink;
-      color: $dark-pink;
+      background-color: $fourth-colour;
+      color: $third-colour;
       border: .01px #6b605442 solid;
       border-radius: 3px;
       cursor: $button-cursor;
@@ -104,8 +100,8 @@ $grey: #5d6369fb;
     }
 
     .submit-button:hover {
-      background-color: $dark-pink;
-      color: $light-pink;
+      background-color: $third-colour;
+      color: $fourth-colour;
     }
 
     .voter-name-form {
@@ -125,7 +121,7 @@ $grey: #5d6369fb;
   #submission-box {
     text-align: center;
     border-radius: $border-radius;
-    border: $dark-pink 0.5px solid;
+    border: $third-colour 0.5px solid;
     padding: 1%;
     width: 50%;
 
@@ -137,8 +133,8 @@ $grey: #5d6369fb;
 
   button {
     margin-bottom: 20px;
-    background-color: $dark-pink;
-    color: $light-pink;
+    background-color: $third-colour;
+    color: $fourth-colour;
     border: .01px #6b605442 solid;
     border-radius: 3px;
     cursor: $button-cursor;
@@ -146,8 +142,8 @@ $grey: #5d6369fb;
   }
 
   button:hover {
-    background-color: $light-pink;
-    color: $dark-pink;
+    background-color: $fourth-colour;
+    color: $third-colour;
   }
 
 }
