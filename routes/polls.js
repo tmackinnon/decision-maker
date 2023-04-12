@@ -96,7 +96,7 @@ router.get('/:id', (req, res) => {
           options: data
         };
 
-        res.render('polls_vote', templateVars);;
+        res.render('polls_vote', templateVars);
       })
 });
 
@@ -106,7 +106,7 @@ router.get('/:id', (req, res) => {
 router.post('/:id', (req, res) => {
   voteQueries.saveVotes(req.body);
   // console.log(req.params.id) //poll id
-  res.redirect('/');
+  res.status(200).json({ success: true });
 });
 
 
