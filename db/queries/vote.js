@@ -30,13 +30,13 @@ const saveVotes = (object) => {
     RETURNING *;
     `;
 
-   return db
-    .query(queryString, queryParams)
-    .catch((err) => {
+   db
+   .query(queryString, queryParams)
+   .catch((err) => {
       console.log(err.message);
     });
   }
-
+  return;
 }
 
 

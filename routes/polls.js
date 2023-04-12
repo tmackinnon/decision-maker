@@ -105,6 +105,7 @@ router.get('/:id', (req, res) => {
 // polls_vote.ejs
 router.post('/:id', (req, res) => {
   voteQueries.saveVotes(req.body);
+  console.log(req.body)
   // console.log(req.params.id) //poll id
   res.status(200).json({ success: true });
 });
