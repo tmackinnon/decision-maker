@@ -79,7 +79,7 @@ router.get('/:id', (req, res) => {
           options: data
         };
 
-        res.render('polls_vote', templateVars);;
+        res.render('polls_vote', templateVars);
       })
 });
 

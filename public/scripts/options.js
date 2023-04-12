@@ -42,5 +42,4 @@ const createOption = (option) => {
     .then(response =>  createOption(response))
     .then(element => $('.option-container').prepend(element))
   })
-
 });
