@@ -113,8 +113,17 @@ router.post('/:id', (req, res) => {
       const options = {
         from: process.env.OUTLOOK_USER,
         to: admin,
-        subject: 'Your Poll Has Received a Submission',
-        text: `${voter_name} has voted on your poll: ${title}. See the current results here: ${adminLink}, or send your poll to more people with this link: ${voteLink}.`
+        subject: 'Your Poll Has Received a Submission!',
+        text: `
+        Your poll has received a submission!
+
+        ${voter_name} has voted on your poll: ${title}.
+        Checkout the results here: ${adminLink}.
+        Send your poll to more people with the following link: ${voteLink}.
+
+        Happy decision making,
+        LHL Decision Maker Team
+        `
       }
 
       transporter.sendMail(options, (err, info) => {
