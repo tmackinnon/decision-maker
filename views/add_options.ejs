@@ -22,13 +22,13 @@
     <form class="new-option">
       <input type="hidden" name="pollId" value="<%= locals[1] %>">
       <header>
-        <div class="option-title-input">
+        <div class="option-title-input-container">
           <label for="title">Title</label>
-          <input type="text" name="title">
+          <input type="text" name="title" id="option-title-input">
         </div>
-        <div class="option-description-input">
+        <div class="option-description-input-container">
           <label for="description">Description</label>
-          <textarea name="description"></textarea>
+          <textarea name="description" id="option-description-input"></textarea>
         </div>
         <button id="add-option">Add option</button>
       </header>

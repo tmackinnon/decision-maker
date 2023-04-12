@@ -41,6 +41,10 @@ const createOption = (option) => {
     $.post('/options', data)
     .then(response =>  createOption(response))
     .then(element => $('.option-container').prepend(element))
+    .then( () => {
+      $('#option-title-input').val('');
+      $('#option-description-input').val('');
+    })
   })
 
 });
