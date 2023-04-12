@@ -64,14 +64,24 @@ const optionDatabase = {
 
 const pollsDatabase = {};
 
-router.get('/results', (req, res) => {
-  const templateVars = {
-    winningOption,
-    optionDatabase,
-    pollsDatabase
-  };
+const resultQueries = require('../db/queries/results');
 
-  res.render("polls_results", templateVars);
+router.get('/:id/results', (req, res) => {
+  // const templateVars = {
+  //   winningOption,
+  //   optionDatabase,
+  //   pollsDatabase
+  // };
+
+  const id = [req.params.id];
+  resultQueries.getRankings(id)
+    .then(data => {
+      const templateVars = {
+        results: data
+      };
+      console.log(templateVars);
+      res.render("polls_results", templateVars);
+  })
 });
 
 // Delete Poll
@@ -104,6 +114,7 @@ router.get('/:id', (req, res) => {
 // polls_vote.ejs
 router.post('/:id', (req, res) => {
   voteQueries.saveVotes(req.body);
+  console.log(req.body);
   res.redirect('/');
 });
 
