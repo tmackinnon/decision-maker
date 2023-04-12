@@ -7,8 +7,8 @@
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-
-  <link rel="stylesheet" href="../styles/results.css" type="text/css"/>
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/results.css" type="text/css"/>
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
@@ -18,43 +18,49 @@
 
 <body>
   <%- include('partials/_header') %>
-  <% let num = 1 %>
   <main>
     <div id="poll-title">
-      <h1>Poll Title</h1>
-      <h4>Poll Description</h4>
+      <h1><%= results[0].poll_title %></h1>
+      <h4><%= results[0].poll_description %></h4>
     </div>
     <div id="winning-option" class="option-container">
-      <div class="number"><%= num %></div>
+      <div class="number">1</div>
       <div class="option">
-        <h1>I'm the winning option!</h1>
+        <h1><%= results[0].title %></h1>
         <button class="hide-button"> Hide Description </button>
-        <h4 class="description">ASKjaskdghsdjkghnjkascmasjcnkasjn</h4>
+        <h4 class="description"><%= results[0].description %></h4>
       </div>
     </div>
-    <% for (let key in optionDatabase) { %>
+    <% for (let i = 1; i < results.length; i++) { %>
       <div class="option-container">
-        <div class="number"><%= num+=1 %></div>
+        <div class="number"><%= i + 1 %></div>
         <div class="option">
-          <h1><%= optionDatabase[key].title %></h1>
+          <h1><%= results[i].title %></h1>
           <button class="hide-button"> Hide Description </button>
-          <h4 class="description"><%= optionDatabase[key].description %></h4>
+          <h4 class="description"><%= results[i].description %></h4>
         </div>
       </div>
     <% } %>
 </body>
 <script>
-$(() => {
-  $(".hide-button").click(function() {
-    const description = $(this).parent().find(".description");
+  $(() => {
+    $(".hide-button").click(function() {
+      const description = $(this).parent().find(".description");
 
-    if ($(description).css("display") === "none") {
-      return $(description).css({"display" : ""});
-    }
+      if ($(description).css("display") === "none") {
+        return $(description).css({"display" : ""});
+      }
 
-    return $(description).css({"display" : "none"});
+      return $(description).css({"display" : "none"});
+    })
+
+    // Write query
+    /* SELECT * FROM
+    ORDER BY rank
+    WHERE polls_id = req.params.id;
+
+    */
   })
-})
 </script>
 
 </html>

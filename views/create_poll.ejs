@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/create_poll.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+
+  <title>Create Poll</title>
+</head>
+
+<body>
+  <%- include('partials/_header') %>
+  <form action="/polls/new" method="post">
+    <main>
+      <div class="poll-title-input">
+        <label for="title">Title</label>
+        <input type="text" name="title">
+      </div>
+      <div class="poll-description-input">
+        <label for="description">Description</label>
+        <textarea name="description" id=""></textarea>
+      </div>
+    </main>
+    <footer>
+      <input type="text" name="email" placeholder="Email" class="user-email-input">
+      <button id="submit-poll">Submit</button>
+    </footer>
+  </form>
+</body>
+</html>

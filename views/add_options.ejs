@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/add_options.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/options.js"></script>
+  <title>Add options</title>
+</head>
+<body>
+  <%- include('partials/_header') %>
+  <main>
+    <form class="new-option">
+      <input type="hidden" name="pollId" value="<%= locals[1] %>">
+      <header>
+        <div class="option-title-input">
+          <label for="title">Title</label>
+          <input type="text" name="title">
+        </div>
+        <div class="option-description-input">
+          <label for="description">Description</label>
+          <textarea name="description"></textarea>
+        </div>
+        <button id="add-option">Add option</button>
+      </header>
+    </form>
+
+    <article class="option-container">
+      <% for (let option of locals[0]) { %>
+        <div class="option-instance">
+          <div class="option-info">
+            <div class="option-title-info">
+              <h3><%= option.title %></h3>
+            </div>
+            <div class="option-description-info">
+              <p><%= option.description %></p>
+            </div>
+          </div>
+          <button class="delete-option" id=<%=option.id %>>Delete</button>
+        </div>
+      <% } %>
+    </article>
+
+    <footer>
+      <form action="/polls/new"></form>
+      <button>Complete poll</button>
+    </footer>
+  </main>
+</body>
+</html>
