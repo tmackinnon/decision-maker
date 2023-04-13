@@ -28,11 +28,11 @@ main {
   text-align: center;
   justify-content: space-around;
   box-shadow: 10px 10px 10px black;
+  background-color: $secondary-colour;
 }
 
 #winning-option {
-  background-color: #272727;
-  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  background-color: $fourth-colour;
   color:black;
 }
 
@@ -47,5 +47,9 @@ main {
   margin-right: auto;
   margin-left:20px;
   font-size: 60px;
+}
+
+.hide-button {
+  margin-bottom: 25px;
 }
 

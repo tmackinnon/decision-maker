@@ -30,9 +30,9 @@
     <div id="winning-option" class="option-container">
       <div class="number">1</div>
       <div class="option">
-        <h1><%= results[0].title %></h1>
-        <button class="hide-button"> Hide Description </button>
+        <h1>WINNER: <%= results[0].title %></h1>
         <h4 class="description"><%= results[0].description %></h4>
+        <button class="hide-button"> Hide Description </button>
       </div>
     </div>
     <% for (let i = 1; i < results.length; i++) { %>
@@ -40,8 +40,8 @@
         <div class="number"><%= i + 1 %></div>
         <div class="option">
           <h1><%= results[i].title %></h1>
-          <button class="hide-button"> Hide Description </button>
           <h4 class="description"><%= results[i].description %></h4>
+          <button class="hide-button"> Hide Description </button>
         </div>
       </div>
     <% } %>
@@ -52,9 +52,11 @@
       const description = $(this).parent().find(".description");
 
       if ($(description).css("display") === "none") {
+        $(this).html("Hide Description");
         return $(description).css({"display" : ""});
       }
 
+      $(this).html("Show Description");
       return $(description).css({"display" : "none"});
     })
 
