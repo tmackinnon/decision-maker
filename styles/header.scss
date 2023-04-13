@@ -39,3 +39,19 @@ header.header {
   margin-top: 10px;
   font-size: 1.5em;
 }
+
+@media (max-width: 1500px) {
+
+  header.header {
+    height: 150px;
+  }
+
+  #title {
+    font-size: 2rem;
+  }
+
+  #new-poll {
+    font-size: 1.5rem;
+  }
+
+}
