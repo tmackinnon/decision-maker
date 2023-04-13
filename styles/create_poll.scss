@@ -6,10 +6,24 @@ main {
   align-items: center;
   background-color: inherit;
   padding-top: $header-height;
+  flex-direction: column;
+
+  .title-container {
+    width: 30%;
+    text-align: center;
+
+    #title {
+      margin-top: 50px;
+      padding-left: 0;
+      font-size: 32px;
+      font-family: $font;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .form-container {
-  margin-top: 100px;
+  margin-top: 50px;
   background-color: $secondary-colour;
   padding: 2rem 3rem;
   border-radius: 0.6rem;
