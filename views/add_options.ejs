@@ -27,22 +27,22 @@
   <%- include('partials/_header') %>
   <main>
     <form class="new-option">
-      <input type="hidden" id="pollId" name="pollId" value="<%= locals[1] %>">
+      <input type="hidden" id="pollId" name="pollId" value="<%= pollId %>">
       <header>
         <div class="option-title-input-container">
           <label for="title">Create a Poll Option</label>
-          <input type="text" name="title" id="option-title-input" required placeholder="Option Name">
+          <input type="text" name="title" id="option-title-input" required>
         </div>
         <div class="option-description-input-container">
           <label for="description">Describe Your Option</label>
-          <textarea name="description" id="option-description-input" placeholder="Provide some context for this option"></textarea>
+          <textarea name="description" id="option-description-input"></textarea>
         </div>
         <button id="add-option">Add option</button>
       </header>
     </form>
 
     <article class="option-container">
-      <% for (let option of locals[0]) { %>
+      <% for (let option of options) { %>
         <div class="option-instance">
           <div class="option-info">
             <div class="option-title-info">

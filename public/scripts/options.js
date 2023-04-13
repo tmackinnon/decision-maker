@@ -24,7 +24,7 @@ $(() => {
         <h3>${escape(option.title)}</h3>
       </div>
       <div class="option-description-info">
-        <p>${option.description ? escape(option.description) : ''}</p>
+        ${option.description ? `<p>${escape(option.description)}</p>` : ''}
       </div>
     </div>
     <button class="delete-option" id=${escape(option.id)}>Delete</button>

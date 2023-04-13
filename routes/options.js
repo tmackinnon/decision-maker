@@ -16,7 +16,10 @@ const transporter = nodemailer.createTransport({
 router.get('/:id', (req, res) => {
   const pollId = req.params.id;
   getOptions(pollId)
-    .then(options => res.render('add_options.ejs', [options, pollId]));
+    .then(options => {
+      const templateVars = {options, pollId}
+      res.render('add_options.ejs', templateVars)
+    });
 });
 
 router.post('/', (req, res) => {
@@ -60,7 +63,7 @@ router.post('/:id', (req, res) => {
 
 router.post('/delete/:id', (req, res) => {
   const optionId = req.params.id;
-  
+
   deleteOption([optionId])
     .then(() => res.status(200).json({ success: true }))
 });
