@@ -13,7 +13,6 @@ main {
   background-color: $secondary-colour;
   padding: 2rem 3rem;
   border-radius: 0.6rem;
-  border: 2px solid $fourth-colour;
 }
 
 article {
@@ -29,6 +28,11 @@ article {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  label {
+    font-weight: 600;
+    color: #404346fb;
+  }
 }
 
 .poll-title-input label,

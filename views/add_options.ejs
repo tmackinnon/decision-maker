@@ -30,12 +30,12 @@
       <input type="hidden" name="pollId" value="<%= locals[1] %>">
       <header>
         <div class="option-title-input-container">
-          <label for="title">Title</label>
-          <input type="text" name="title" id="option-title-input" required>
+          <label for="title">Create a Poll Option</label>
+          <input type="text" name="title" id="option-title-input" required placeholder="Option Name">
         </div>
         <div class="option-description-input-container">
-          <label for="description">Description</label>
-          <textarea name="description" id="option-description-input"></textarea>
+          <label for="description">Describe Your Option</label>
+          <textarea name="description" id="option-description-input" placeholder="Provide some context for this option"></textarea>
         </div>
         <button id="add-option">Add option</button>
       </header>

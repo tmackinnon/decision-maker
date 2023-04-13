@@ -102,6 +102,7 @@ $grey: #5d6369fb;
     .submit-button:hover {
       background-color: $third-colour;
       color: $fourth-colour;
+      transition: 0.3s;
     }
 
     .voter-name-form {
@@ -144,6 +145,7 @@ $grey: #5d6369fb;
   button:hover {
     background-color: $fourth-colour;
     color: $third-colour;
+    transition: 0.3s;
   }
 
 }
