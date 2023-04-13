@@ -5,7 +5,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: inherit;
-  padding-top: 200px;
+  padding-top: $header-height;
 }
 
 .form-container {
@@ -88,4 +88,10 @@ footer {
   background-color: $third-colour;
   color: $fourth-colour;
   transition: 0.3s;
+}
+
+@media (max-width: 1500px) {
+  main {
+    padding-top: 120px;
+  }
 }

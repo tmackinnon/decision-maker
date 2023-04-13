@@ -53,3 +53,8 @@ main {
   margin-bottom: 25px;
 }
 
+@media (max-width: 1500px) {
+  main {
+    padding-top: 150px;
+  }
+}
