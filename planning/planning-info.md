@@ -39,10 +39,13 @@ As a ______, I want to _______, because ______.
 
 
 ### ERD
-
+!["ERD"](https://github.com/Heaven664/decision-maker/blob/master/planning/screenshots/ERD.png?raw=true)
 
 ### Wireframes
-
+!["Home"](https://github.com/Heaven664/decision-maker/blob/master/planning/screenshots/Homepage.png?raw=true)
+!["CreatePoll"](https://github.com/Heaven664/decision-maker/blob/master/planning/screenshots/CreatePoll.png?raw=true)
+!["Vote"](https://github.com/Heaven664/decision-maker/blob/master/planning/screenshots/VotePage.png?raw=true)
+!["Results"](https://github.com/Heaven664/decision-maker/blob/master/planning/screenshots/Results.png?raw=true)
 
 ### Routes
 
