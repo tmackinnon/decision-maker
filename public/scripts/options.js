@@ -30,13 +30,8 @@ $(() => {
     <button class="delete-option" id=${escape(option.id)}>Delete</button>
   </div>
   `);
-
     return $option;
   };
-
-
-
-
 
 
   $('.new-option').on('submit', function (event) {
@@ -52,31 +47,21 @@ $(() => {
       });
   });
 
+
   $(".option-container").on("click", ".delete-option", function () {
     const options_id = $(this).attr('id');
-
-    $.ajax({
-      type: 'POST',
-      url: `/options/delete/${options_id}`,
-      data: options_id
-    });
-
-    $(this).parent().remove();
+    $.post(`/options/delete/${options_id}`)
+      .then(() => $(this).parent().remove())
   });
 
 
-
   $('#complete-poll').on('submit', (event) => {
-
-    const id = $('#pollId').val()
-
-    event.preventDefault()
+    event.preventDefault();
+    const id = $('#pollId').val();
 
     $.post(`/options/${id}`)
       .then((email) => {
-        console.log(email)
         const $main = $('main');
-
         const sentMessage = `
         <div class="new-option">
         <header style="text-align: center">
@@ -85,10 +70,9 @@ $(() => {
         <footer style="display:flex; justify-content: space-evenly; margin-bottom: 0;">
         <a href="/polls"><button>Homepage</button></a>
         <a href="/polls/new"><button>New Poll</button></a>
-        </footer>
-        `
+        </footer>`;
         $main.empty();
-        $main.append(sentMessage)
-      })
-  })
+        $main.append(sentMessage);
+      });
+  });
 });

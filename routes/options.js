@@ -5,18 +5,18 @@ const { insertOption, getOptions } = require('../db/queries/create_option');
 const { deleteOption } = require('../db/queries/delete_option');
 const { getPoll } = require('../db/queries/get_poll');
 
-const transporter = nodemailer.createTransport( {
+const transporter = nodemailer.createTransport({
   service: 'hotmail',
   auth: {
     user: process.env.OUTLOOK_USER,
     pass: process.env.OUTLOOK_PASS
   }
-})
+});
 
 router.get('/:id', (req, res) => {
   const pollId = req.params.id;
   getOptions(pollId)
-    .then(options => res.render('add_options.ejs', [options, pollId]))
+    .then(options => res.render('add_options.ejs', [options, pollId]));
 });
 
 router.post('/', (req, res) => {
@@ -46,21 +46,23 @@ router.post('/:id', (req, res) => {
         <p>You can share this voter link: </p><a href="http://localhost:8080/polls/${poll.id}">http://localhost:8080/polls/${poll.id}</a>
         <p>You can see current results of the poll here: </p><a href="http://localhost:8080/polls/${poll.id}/results">Results</a>
         `
-      }
+      };
       transporter.sendMail(options, (err, info) => {
         if (err) {
           return console.log(err);
         }
-        console.log(info.response)
-        res.status(200).json(poll.email)
-      })
-    })
+        console.log(info.response);
+        res.status(200).json(poll.email);
+      });
+    });
 
-})
+});
 
 router.post('/delete/:id', (req, res) => {
   const optionId = req.params.id;
-  deleteOption([optionId]);
-})
+  
+  deleteOption([optionId])
+    .then(() => res.status(200).json({ success: true }))
+});
 
 module.exports = router;
