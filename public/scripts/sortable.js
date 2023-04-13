@@ -38,7 +38,7 @@ $(() => {
         voter_name: voter
       }
     }).then(() => {
-      $('#vote').val('');
+      $('#title-top').empty();
       $('#instructions').empty();
       $('.sortable-options').remove(); //clear the poll info to simulate a refresh
       $('.voter-name-form').empty();
