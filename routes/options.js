@@ -52,10 +52,9 @@ router.post('/:id', (req, res) => {
           return console.log(err);
         }
         console.log(info.response)
-        // res.redirect('/');
+        res.status(200).json(poll.email)
       })
     })
-    // .then(() => res.status(200))
 
 })
 
