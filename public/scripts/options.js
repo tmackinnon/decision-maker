@@ -35,7 +35,7 @@ $(() => {
   };
 
 
-  
+
 
 
 
@@ -64,4 +64,31 @@ $(() => {
     $(this).parent().remove();
   });
 
+
+
+  $('#complete-poll').on('submit', (event) => {
+
+    const id = $('#pollId').val()
+
+    event.preventDefault()
+
+    $.post(`/options/${id}`)
+      .then((email) => {
+        console.log(email)
+        const $main = $('main');
+
+        const sentMessage = `
+        <div class="new-option">
+        <header style="text-align: center">
+          <p>Links successfully sent to <b>${email}</b></p>
+        </header>
+        <footer style="display:flex; justify-content: space-evenly; margin-bottom: 0;">
+        <a href="/polls"><button>Homepage</button></a>
+        <a href="/polls/new"><button>New Poll</button></a>
+        </footer>
+        `
+        $main.empty();
+        $main.append(sentMessage)
+      })
+  })
 });

@@ -35,10 +35,8 @@ router.post('/', (req, res) => {
 
 router.post('/:id', (req, res) => {
   const id = req.params.id;
-
   getPoll(id)
     .then(poll => {
-      console.log(poll)
       const options = {
         from: process.env.OUTLOOK_USER,
         to: `${poll.email}`,
@@ -53,7 +51,8 @@ router.post('/:id', (req, res) => {
         if (err) {
           return console.log(err);
         }
-        res.redirect('/');
+        console.log(info.response)
+        res.status(200).json(poll.email)
       })
     })
 

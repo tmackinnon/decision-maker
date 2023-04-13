@@ -27,7 +27,7 @@
   <%- include('partials/_header') %>
   <main>
     <form class="new-option">
-      <input type="hidden" name="pollId" value="<%= locals[1] %>">
+      <input type="hidden" id="pollId" name="pollId" value="<%= locals[1] %>">
       <header>
         <div class="option-title-input-container">
           <label for="title">Create a Poll Option</label>
@@ -60,7 +60,7 @@
     </article>
 
     <footer>
-      <form action="/options/<%= locals[1] %>" method="post">
+      <form id="complete-poll">
         <button type="submit">Complete poll</button>
       </form>
     </footer>
