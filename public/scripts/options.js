@@ -35,7 +35,7 @@ $(() => {
   };
 
 
-  
+
 
 
 
@@ -64,4 +64,30 @@ $(() => {
     $(this).parent().remove();
   });
 
+  const sentMessage = `
+  <form class="new-option">
+  <header>
+    <p>Mail sent to </p>
+  </header>
+  `
+
+  $('#complete-poll').on('submit', (event) => {
+
+    const sentMessage = `
+    <form class="new-option">
+    <header>
+      <p>Mail sent to </p>
+    </header>
+    `
+    event.preventDefault()
+    const id = $('#pollId').val()
+    $.post(`/options/${id}`)
+      .then((email) => {
+        console.log(email)
+        const $main = $('main');
+        $main.empty();
+        $main.append(sentMessage)
+
+      })
+  })
 });
