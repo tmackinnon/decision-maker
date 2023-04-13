@@ -14,7 +14,6 @@ const getRankings = function(queryParams) {
   return db
     .query(queryString, queryParams)
     .then(result => {
-      console.log(result.rows);
       return result.rows;
     })
     .catch(err => {

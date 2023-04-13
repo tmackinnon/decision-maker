@@ -3,43 +3,75 @@
 .about {
   display: flex;
   flex-direction: column;
-  padding-top: 300px;
+  padding-top: 250px;
   align-items: center;
-  margin-bottom: 100px;
 
   header {
   border-radius: $options-border-radius;
-  width: 50%;
+  width: 80%;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: $secondary-colour;
 
-  h4 {
-    margin: 0;
-    color: #5d6369fb;
-  }
-
-  h1 {
-    font-weight: 600;
-    margin: 10px;
-  }
-
-}
-
-  .info-box {
-    border: 1px $third-colour solid;
-    width: 50%;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: $options-border-radius;
-
     h4 {
       margin: 0;
-      margin-bottom: 20px;
       color: #5d6369fb;
     }
 
+    h1 {
+     font-weight: 600;
+      margin: 10px;
+      margin-top: 0;
+   }
+
   }
+
+  .info {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    .howto {
+      border: 1px $third-colour solid;
+      width: 40%;
+      text-align: center;
+      padding: 10px;
+      border-radius: $options-border-radius;
+
+      h4 {
+        margin: 0;
+        margin-bottom: 20px;
+        color: #5d6369fb;
+      }
+
+    }
+
+    .borda {
+      border: 1px $third-colour solid;
+      width: 40%;
+      text-align: center;
+      padding: 10px;
+      border-radius: $options-border-radius;
+    }
+
+  }
+
+  .create {
+
+    .button {
+      background-color:#ED6A5A;
+      color: whitesmoke;
+      border: .01px #6b605442 solid;
+      border-radius: $options-border-radius;
+      cursor: pointer;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+  }
+
 }
+
