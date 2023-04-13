@@ -5,19 +5,19 @@ $(() => {
  * @param {string} str - any sequence of characters
  * @returns same string
  */
-const escape = function (str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
-/**
- *
- * @param {object} option
- * @returns jquery object with html structure
- */
-const createOption = (option) => {
-  const $option = $(`
+  /**
+   *
+   * @param {object} option
+   * @returns jquery object with html structure
+   */
+  const createOption = (option) => {
+    const $option = $(`
   <div class="option-instance">
     <div class="option-info">
       <div class="option-title-info">
@@ -31,19 +31,37 @@ const createOption = (option) => {
   </div>
   `);
 
-  return $option;
-}
+    return $option;
+  };
+
+
+  
+
+
 
   $('.new-option').on('submit', function (event) {
     event.preventDefault();
     const data = $(this).serialize();
 
     $.post('/options', data)
-    .then(response =>  createOption(response))
-    .then(element => $('.option-container').prepend(element))
-    .then( () => {
-      $('#option-title-input').val('');
-      $('#option-description-input').val('');
-    })
-  })
+      .then(response => createOption(response))
+      .then(element => $('.option-container').prepend(element))
+      .then(() => {
+        $('#option-title-input').val('');
+        $('#option-description-input').val('');
+      });
+  });
+
+  $(".option-container").on("click", ".delete-option", function () {
+    const options_id = $(this).attr('id');
+
+    $.ajax({
+      type: 'POST',
+      url: `/options/delete/${options_id}`,
+      data: options_id
+    });
+
+    $(this).parent().remove();
+  });
+
 });

@@ -50,7 +50,7 @@
             </div>
             <% } %>
           </div>
-          <button class="delete-option" id=<%=option.id %>>Delete</button>
+          <button class="delete-option" id=<%=option.id %>> Delete </button>
         </div>
       <% } %>
     </article>
@@ -62,19 +62,5 @@
     </footer>
   </main>
 </body>
-<script>
-  $(() => {
-    $(".option-container").on("click", ".delete-option", function() {
-      const options_id = $(this).attr('id');
 
-      $.ajax({
-        type: 'POST',
-        url: `/options/delete/${options_id}`,
-        data: options_id
-      })
-
-      $(this).parent().remove();
-    })
-  })
-</script>
 </html>
