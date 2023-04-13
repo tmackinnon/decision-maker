@@ -1,9 +1,41 @@
 @import 'variables';
 
-.header {
+header.header {
   width: 100%;
   background-color: $main-colour;
-  height: 200px;
+  background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
+  height: $header-height;
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+#title {
+  padding-left: 40px;
+  font-size: 4em;
+  font-family: 'Frank Ruhl Libre', serif;
+  color:black;
+
+}
+
+.fa-sharp {
+  margin-right: 20px;
+}
+
+#new-poll {
+  margin-right: 60px;
+  font-size: 2em;
+  color: black;
+
+  font-family: 'Frank Ruhl Libre', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.fa-square-plus {
+  margin-top: 10px;
+  font-size: 1.5em;
+}

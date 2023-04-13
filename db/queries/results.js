@@ -11,9 +11,6 @@ const getRankings = function(queryParams) {
     GROUP BY polls.title, polls.description, options.title, options.description
     ORDER BY rank;`
 
-
-
-
   return db
     .query(queryString, queryParams)
     .then(result => {
@@ -26,3 +23,4 @@ const getRankings = function(queryParams) {
 };
 
 module.exports = { getRankings };
+
