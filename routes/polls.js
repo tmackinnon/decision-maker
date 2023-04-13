@@ -50,27 +50,20 @@ router.post('/new', (req, res) => {
 const resultQueries = require('../db/queries/results');
 
 router.get('/:id/results', (req, res) => {
-  // const templateVars = {
-  //   winningOption,
-  //   optionDatabase,
-  //   pollsDatabase
-  // };
-
   const id = [req.params.id];
   resultQueries.getRankings(id)
     .then(data => {
       const templateVars = {
         results: data
       };
-      console.log(templateVars);
+
+      if (data.length === 0) {
+        return res.status(404).send("This poll does not exist!")
+      };
+
       res.render("polls_results", templateVars);
   })
 });
-
-// Delete Poll
-// DELETE /polls/:id
-
-
 
 
 //Tara
