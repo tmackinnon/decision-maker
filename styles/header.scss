@@ -3,7 +3,7 @@
 .header {
   width: 100%;
   background-color: $main-colour;
-  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
   height: $header-height;
   position: fixed;
   display: flex;
@@ -15,18 +15,19 @@
   padding-left: 40px;
   font-size: 5em;
   font-family: 'Frank Ruhl Libre', serif;
-  color:antiquewhite;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  color:black;
+
 }
 
-i {
-  margin-right: 15px;
+.fa-sharp {
+  margin-right: 20px;
 }
 
 #new-poll {
   margin-right: 60px;
   font-size: 2em;
-  color: antiquewhite;
+  color: black;
+
   font-family: 'Frank Ruhl Libre', serif;
   display: flex;
   flex-direction: column;
