@@ -10,6 +10,15 @@ const router = express.Router();
 const { createPoll, addLinks } = require('../db/queries/create_poll');
 const voteQueries = require('../db/queries/vote');
 
+const nodemailer = require("nodemailer");
+const transporter = nodemailer.createTransport({
+  service: 'hotmail.com',
+  auth: {
+    user: process.env.OUTLOOK_USER,
+    pass: process.env.OUTLOOK_PASS
+  },
+});
+
 //HOMEPAGE
 router.get('/', (req, res) => {
   res.render('index');
@@ -61,17 +70,17 @@ router.get('/:id/results', (req, res) => {
 // Delete Poll
 // DELETE /polls/:id
 
-// Create New Vote - TARA
 
 
 
-// READ
-// GET /polls/:id
+//Tara
+// READ //
+// Voting Page for Poll //
 router.get('/:id', (req, res) => {
   const id = req.params.id
 
   //grab info needed from db
-  voteQueries.getPollInfo(id)
+  voteQueries.getPollOptionInfo(id)
     .then((data) => {
         const templateVars = {
           pollId: id,
@@ -84,37 +93,47 @@ router.get('/:id', (req, res) => {
       })
 });
 
-//ADD
-// POST /polls/:id
-// polls_vote.ejs
+// ADD //
+// Submit Votes //
 router.post('/:id', (req, res) => {
-  voteQueries.saveVotes(req.body);
-  console.log(req.body)
-  // console.log(req.params.id) //poll id
-  res.status(200).json({ success: true });
-
   const id = req.params.id;
-  voteQueries.getAdminEmail(id)
-    .then((emailObj) => {
-      const admin = emailObj.email
+  const voter_name = req.body.voter_name;
+
+  //Save votes in db
+  voteQueries.saveVotes(req.body);
+
+  //send admin email notif
+  voteQueries.getPollInfo(id)
+    .then((pollData) => {
+      const admin = pollData.email;
+      const title = pollData.title;
+      const adminLink = pollData.admin_link;
+      const voteLink = pollData.vote_link;
+
+      const options = {
+        from: process.env.OUTLOOK_USER,
+        to: admin,
+        subject: 'Your Poll Has Received a Submission!',
+        html:`
+        <h3>Your poll has received a submission!</h3>
+
+       <p>${voter_name} has voted on your poll: ${title}.</p>
+       <p>Checkout the results here: <a href="${adminLink}">Results</a>.
+       <p>Or send your poll to more people by using the following link: <a href="${voteLink}">Vote Link<a>.</p>
+
+        <p>Happy decision making,<br>LHL Decision Maker Team</p>`
+      }
+
+      transporter.sendMail(options, (err, info) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        console.log('Sent:' + info.response)
+      })
     })
 
-  // MAILGUN SECTION to go inside .then:
-  // const mailgun = require("mailgun-js"); //move this to the top of the page
-  // const DOMAIN = 'sandbox56b347cc4f5a43238ed569160b490f96.mailgun.org';
-  // const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: DOMAIN});
-  // const data = {
-  //   from: 'Decision Maker Team <taramackinnon4@gmail.com>',
-  //   to: admin,
-  //   subject: 'Your Poll Has Received More Votes!',
-  //   text: 'Hi, ___. Your poll has received '
-  // };
-  // mg.messages().send(data, function (error, body) {
-  //   if (error) {
-  //     console.log(error);
-  //   }
-  //   console.log(body);
-  // });
+  res.status(200).json({ success: true });
 
 });
 

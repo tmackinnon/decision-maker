@@ -1,5 +1,5 @@
-INSERT INTO polls (email, title, description, admin_link, vote_link) VALUES ('randomemail1@mail.com', 'WHICH MOVIE?', 'I CAN''T CHOSE MYSELF', 'https://www.adminlink1.com', 'https://www.votelink1.com');
-INSERT INTO polls (email, title, description, admin_link, vote_link) VALUES ('randomemail2@mail.com', 'WHICH SONG?', 'I CAN''T CHOSE MYSELF', 'https://www.adminlink2.com', 'https://www.votelink2.com');
+INSERT INTO polls (email, title, description, admin_link, vote_link) VALUES ('LHL_DecisionMaker@outlook.com', 'WHICH MOVIE?', 'I CAN''T CHOSE MYSELF', 'https://www.adminlink1.com', 'https://www.votelink1.com');
+INSERT INTO polls (email, title, description, admin_link, vote_link) VALUES ('LHL_DecisionMaker@outlook.com', 'WHICH SONG?', 'I CAN''T CHOSE MYSELF', 'https://www.adminlink2.com', 'https://www.votelink2.com');
 
 INSERT INTO options (poll_id, title, description) VALUES (1, 'The Hobbit', 'FANTASY');
 INSERT INTO options (poll_id, title, description) VALUES (1, 'The Truman Show', 'COMEDY');

@@ -2,7 +2,7 @@ const { query } = require('express');
 const db = require('../connection');
 
 //example
-const getPollInfo = (id) => {
+const getPollOptionInfo = (id) => {
   const queryString = `
   SELECT options.title as otitle, options.description as odesc, options.id, polls.title as ptitle, polls.description as pdesc
   FROM options
@@ -39,12 +39,13 @@ const saveVotes = (object) => {
   return;
 }
 
-const getAdminEmail = (id) => {
-  const queryString = `SELECT email FROM polls WHERE id = $1;`
+const getPollInfo = (id) => {
+  const queryString = `SELECT * FROM polls WHERE id = $1;`
 
   return db
     .query(queryString, [id])
     .then((data) => {
+      console.log('data.rows[0]', data.rows[0])
       return data.rows[0];
     })
     .catch((err) => {
@@ -53,7 +54,7 @@ const getAdminEmail = (id) => {
 }
 
 
-module.exports = { getPollInfo, saveVotes, getAdminEmail };
+module.exports = { getPollOptionInfo, saveVotes, getPollInfo };
 
 
 
