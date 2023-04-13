@@ -9,6 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/results.css" type="text/css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
@@ -26,9 +30,9 @@
     <div id="winning-option" class="option-container">
       <div class="number">1</div>
       <div class="option">
-        <h1><%= results[0].title %></h1>
-        <button class="hide-button"> Hide Description </button>
+        <h1>WINNER: <%= results[0].title %></h1>
         <h4 class="description"><%= results[0].description %></h4>
+        <button class="hide-button"> Hide Description </button>
       </div>
     </div>
     <% for (let i = 1; i < results.length; i++) { %>
@@ -36,8 +40,8 @@
         <div class="number"><%= i + 1 %></div>
         <div class="option">
           <h1><%= results[i].title %></h1>
-          <button class="hide-button"> Hide Description </button>
           <h4 class="description"><%= results[i].description %></h4>
+          <button class="hide-button"> Hide Description </button>
         </div>
       </div>
     <% } %>
@@ -48,9 +52,11 @@
       const description = $(this).parent().find(".description");
 
       if ($(description).css("display") === "none") {
+        $(this).html("Hide Description");
         return $(description).css({"display" : ""});
       }
 
+      $(this).html("Show Description");
       return $(description).css({"display" : "none"});
     })
 
