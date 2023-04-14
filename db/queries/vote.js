@@ -45,7 +45,6 @@ const getPollInfo = (id) => {
   return db
     .query(queryString, [id])
     .then((data) => {
-      console.log('data.rows[0]', data.rows[0])
       return data.rows[0];
     })
     .catch((err) => {
