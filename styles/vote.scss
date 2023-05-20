@@ -9,12 +9,12 @@ $grey: #5d6369fb;
 .poll-info {
   display: flex;
   flex-direction: column;
-  padding-top: 250px;
   align-items: center;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
+  background-color: whitesmoke;
+
 
     header {
-      margin-top: 50px;
       width: 50%;
       display: flex;
       flex-direction: column;
@@ -28,12 +28,15 @@ $grey: #5d6369fb;
         }
 
         #title-box {
-          border: $third-colour 1px solid;
-          border-radius: 0.6rem;
           display: flex;
           flex-direction: column;
           align-items: center;
           width: 100%;
+          margin-top: 60px;
+          margin-bottom: 20px;
+          border-radius: 0.6rem;
+          box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1098039216);
+          background-color: #fefefe;
 
           span {
             margin-top: 15px;
@@ -42,7 +45,8 @@ $grey: #5d6369fb;
 
           h1{
             margin: 0;
-            color: #ed6a5a;
+            color: #033868;
+            font-size: 40px;
           }
         }
 
@@ -51,43 +55,56 @@ $grey: #5d6369fb;
           flex-direction: column;
           text-align: center;
           margin-bottom: 20px;
+          margin-top: 20px;
           flex-wrap: wrap;
-          color: #5d6369fb;
+          font-size: 20px;
         }
     }
 
     .sortable-options {
-      background: $secondary-colour;
       padding: 20px;
       border: none;
-      border-radius: $options-border-radius;
-      width: 50%;
+      width: 90%;
       margin-bottom: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 0px 0px 15px 2px #0000001c;
+      background-color: #fefefe;
+      border-radius: 0.6rem;
 
       .ranking {
-        color: $grey;
+        color:#d73431;
         margin: 10px;
         font-weight: 600;
+        font-size: 20px;
       }
     }
 
     .options-table {
       margin-bottom: 10px;
       margin-top: 10px;
-      width: 100%;
+      width: 60%;
     }
 
       .option {
         cursor: $button-cursor;
         border: $border;
         border-radius: $border-radius;
-        padding: 15px;
-        padding-left: 30px;
-        background-color: whitesmoke;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.818);
+        padding: 10px;
+        text-align: center;
+        margin: 20px, 0px;
+        background-color: #033868;
+        font-size: 18px;
+
+        h3 {
+          color: #fefefe;
+          font-size: 32px;
+          margin-bottom: 10px;
+        }
+        p {
+          color: #fefefe;
+        }
       }
 
 
@@ -151,11 +168,4 @@ $grey: #5d6369fb;
     transition: 0.3s;
   }
 
-}
-
-
-@media (max-width: 1500px) {
-  .poll-info {
-    padding-top: 120px;
-  }
 }
