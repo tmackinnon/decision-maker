@@ -6,9 +6,9 @@ Decision Maker is a multi-page application designed to simplify the group decisi
 
 ## Screenshots
 
-![Homepage]()
-![Homepage]()
-![Homepage]()
+![Homepage](https://github.com/tmackinnon/decision-maker/blob/tm-styling-updates/docs/Home.png?raw=true)
+![Add Option](https://github.com/tmackinnon/decision-maker/blob/tm-styling-updates/docs/Add-option.png?raw=true)
+![Homepage](https://github.com/tmackinnon/decision-maker/blob/tm-styling-updates/docs/Vote.png?raw=true)
 
 ## Getting Started
 
