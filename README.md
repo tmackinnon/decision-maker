@@ -1,5 +1,5 @@
-Decision Maker
-=========
+# Decision Maker
+=======
 
 ## Project Description
 ___
@@ -12,14 +12,13 @@ ___
 
 ## Project Setup
 
-The following steps are only for _one_ of the group members to perform.
+Decision Maker is a multi-page application designed to simplify the group decision-making process for a user and their friends. With just a few clicks, users can create a new poll and specify their options. The application then generates two links, one for sharing with potential voters and the other for checking the current poll results. All tedious calculations are handled by our application, leaving you with more time to focus on other important matters.
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+## Screenshots
 
+![Homepage](https://github.com/tmackinnon/decision-maker/blob/tm-styling-updates/docs/Home.png?raw=true)
+![Add Option](https://github.com/tmackinnon/decision-maker/blob/tm-styling-updates/docs/Add-option.png?raw=true)
+![Homepage](https://github.com/tmackinnon/decision-maker/blob/tm-styling-updates/docs/Vote.png?raw=true)
 
 ## Getting Started
 
