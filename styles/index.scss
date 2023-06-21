@@ -3,7 +3,7 @@
 .about {
   display: flex;
   flex-direction: column;
-  padding-top: 250px;
+  padding-top: 50px;
   align-items: center;
   width: 100%;
 
@@ -19,9 +19,11 @@
     }
 
     h1 {
-     font-weight: 600;
+      font-weight: 600;
       margin: 10px;
       margin-top: 0;
+      color: #033868;
+      font-size: 48px;
    }
 
   }
@@ -33,6 +35,8 @@
     margin-bottom: 20px;
     flex-direction: column;
     align-items: center;
+    background-color: #fefefe;
+    padding: 40px 0px;
 
 
     .howto {
@@ -40,21 +44,24 @@
       text-align: center;
       padding: 10px;
       border-radius: $options-border-radius;
+      // background-color: #fefefe;
+      // box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1098039216);
 
-      h4 {
-        margin: 0;
-        margin-bottom: 20px;
-        color: #5d6369fb;
+      h1 {
+        margin-top: 16px;
       }
 
     }
 
     .borda {
-      border: 1px $third-colour solid;
-      width: 40%;
+      // border: 1px #d73431 solid;
+      // background-color: #fefefe;
+      width: 30%;
       text-align: center;
       margin-top: 40px;
-      border-radius: $options-border-radius;
+      margin-bottom: 40px;
+      border-radius: 0.6rem;
+      box-shadow: 0px 0px 15px 2px #c04b4999;
     }
 
   }
@@ -62,15 +69,16 @@
   .create {
 
     .button {
-      background-color:#ED6A5A;
-      color: whitesmoke;
+      background-color:#d73431;
+      color: white;
       border: .01px #6b605442 solid;
+      box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1098039216);
       border-radius: $options-border-radius;
       cursor: pointer;
       padding-left: 40px;
       padding-right: 40px;
-      margin-top: 80px;
-      margin-bottom: 80px;
+      margin-top: 50px;
+      margin-bottom: 50px;
     }
 
   }

@@ -5,28 +5,47 @@ main {
   justify-content: center;
   align-items: center;
   background-color: inherit;
-  padding-top: $header-height;
   flex-direction: column;
 
   .title-container {
-    width: 30%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    width: 50%;
+    margin-bottom: 20px;
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1098039216);
+    background-color: #fefefe;
 
     #title {
-      margin-top: 50px;
-      padding-left: 0;
       font-size: 32px;
       font-family: $font;
-      margin-bottom: 0;
+      padding: 10px;
+      margin-bottom: 0px;
+    }
+    p {
+      margin-bottom: 30px;
     }
   }
 }
 
 .form-container {
+  display: flex;
   margin-top: 50px;
-  background-color: $secondary-colour;
+  font-size: 20px;
+  width: 50%;
   padding: 2rem 3rem;
   border-radius: 0.6rem;
+  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1098039216);
+  background-color: #fefefe;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 article {
@@ -34,6 +53,7 @@ article {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .poll-title-input,
@@ -42,6 +62,7 @@ article {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   label {
     font-weight: 600;
@@ -56,41 +77,42 @@ article {
 
 .poll-title-input input,
 .poll-description-input textarea {
-  min-width: 250px;
   border: 1px solid $border-color;
 }
 
 
 .poll-title-input input {
-  width: 18vw;
+  width: 60%;
   padding: 0.4rem 0.5rem;
   border-radius: 0.3rem;
   margin-bottom: 2rem;
 }
 
-.poll-description-input textarea {
-  width: 23vw;
-  height: 70px;
-  border-radius: 0.5rem;
-  resize: none;
+.poll-description-input {
+  width: 100%;
+
+  textarea {
+    width: 60%;
+    height: 70px;
+    border-radius: 0.5rem;
+    resize: none;
+  }
 }
 
+
 footer {
-  min-width: 250px;
-  width: 23vw;
+  width: 60%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding-top: 2.5rem;
 }
 
 .user-email-input {
-  min-width: 150px;
-  width: 15vw;
+  width: 80%;
   padding: 0.5rem 0.5rem;
   border: 1px solid $border-color;
   border-radius: 0.3rem;
-  margin-right: 10%;
 }
 
 #submit-poll {

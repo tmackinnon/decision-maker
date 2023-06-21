@@ -2,58 +2,32 @@
 
 header.header {
   width: 100%;
-  background-color: $main-colour;
-  background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
-  height: $header-height;
-  position: fixed;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1098039216);
+  background-color: #fefefe;
 }
 
 #title {
-  padding-left: 40px;
-  font-size: 4em;
-  font-family: 'Frank Ruhl Libre', serif;
-  color:black;
+  font-size: 48px;
+  color:#033868;
+  padding: 30px;
 
 }
 
 .fa-sharp {
-  margin-right: 20px;
-  color:black;
+  margin-right: 30px;
+  color:#d73431;
 }
 
 #new-poll {
-  margin-right: 60px;
-  font-size: 2em;
-  color: black;
-
-  font-family: 'Frank Ruhl Libre', serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
+  margin-right: 50px;
 }
 
 .fa-square-plus {
   margin-top: 10px;
-  font-size: 1.5em;
-  color:black;
-}
-
-@media (max-width: 1500px) {
-
-  header.header {
-    height: 120px;
-  }
-
-  #title {
-    font-size: 2rem;
-  }
-
-  #new-poll {
-    font-size: 1.5rem;
-  }
-
+  font-size: 52px;
+  color:#033868;
 }
